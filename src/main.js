@@ -12,10 +12,18 @@ import '@/assets/js/font.js' // ~~ src='..'
 // 引入axios插件的配置
 import './plugins/axios.js'
 
+// 引入状态管理
+import Vuex from 'vuex'
+import store from './store/store.js'
+
+Vue.use(Vuex)
+
 Vue.use(vueSwiper)
 Vue.config.productionTip = false
 new Vue({
   name: 'app',
   render: h => h(App),
-  router
+  router,
+  store
 }).$mount('#app')
+

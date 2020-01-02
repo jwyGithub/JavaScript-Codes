@@ -2,19 +2,19 @@
 <div class="nav">
     <ul>
         <li>
-            <a href="javascript:;">
+            <a href="javascript:;" @click="fashion">
                 <i></i>
                 <p>时尚服饰</p>
             </a>
-            <a href="javascript:;">
+            <a href="javascript:;" @click="business">
                 <i></i>
                 <p>商业财经</p>
             </a>
-            <a href="javascript:;">
+            <a href="javascript:;" @click="build">
                 <i></i>
                 <p>建筑地理</p>
             </a>
-            <a href="javascript:;">
+            <a href="javascript:;" @click="current">
                 <i></i>
                 <p>时政军事</p>
             </a>
@@ -45,6 +45,40 @@
 export default {
     data(){
         return{}
+    },
+    methods:{
+        fashion(){
+            this.$axios({
+                url: 'http://localhost:3000/api/fashion'
+            }).then(
+                res => this.$store.state.Lists = res.data.data
+            )
+            this.$router.push("/list/fashion")
+        },
+        business(){
+            this.$axios({
+                url: 'http://localhost:3000/api/business'
+            }).then(
+                res => this.$store.state.Lists = res.data.data
+            )
+            this.$router.push("/list/fashion")
+        },
+        current(){
+            this.$axios({
+                url: 'http://localhost:3000/api/current'
+            }).then(
+                res => this.$store.state.Lists = res.data.data
+            )
+            this.$router.push("/list/fashion")
+        },
+        build(){
+            this.$axios({
+                url: 'http://localhost:3000/api/build'
+            }).then(
+                res => this.$store.state.Lists = res.data.data
+            )
+            this.$router.push("/list/fashion")
+        }
     }
 }
 </script>

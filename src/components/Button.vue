@@ -1,12 +1,12 @@
 <template>
-  <div class="button">
+  <div class="j-button">
     <a href="javascript:;">{{value}}</a>
   </div>
 </template>
 
 <script>
 export default {
-  name:"button",
+  name:"j-button",
   data () { return {} },
   props:{
     value:{
@@ -23,6 +23,9 @@ export default {
 </script>
 
 <style scoped>
+.j-button{
+  margin: .5rem 0;
+}
 a{
   width: 80%;
   padding: 0;

@@ -2,18 +2,19 @@
   <div class="login">
     <Header></Header>
     <div class="loginType">
-        <a href="javascript:;">
+        <a href="javascript:;" class="sec">
           <i></i>
-          <span @click="tel">手机登陆</span>
+          <span @click="tel" >手机登陆</span>
         </a>
-        <a href="javascript:;">
+        <a href="javascript:;" >
           <i></i>
-          <span @click="acc">账号密码登陆</span>
+          <span @click="acc" >账号密码登陆</span>
         </a>
     </div>
-    <Input :label="lables[0].username" v-model="username"/>
+    <Input :label="lables[0].username" v-model="account"/>
     <Input :label="lables[1].password" v-model="password" isPass="password"/>
     <Button value="登陆" @click.native="login"/>
+    <div class="loginmsg">{{loginmsg}}</div>
   </div>
 </template>
 
@@ -28,8 +29,9 @@ import Button from '../components/Button.vue'
         {username:"手机号"},
         {password:"验证码"}
       ],
-      username:"",
-      password:""
+      account:"",
+      password:"",
+      loginmsg:""
     }},
     components:{
       Header,Input,Button
@@ -37,18 +39,40 @@ import Button from '../components/Button.vue'
     mounted(){},
     updated(){},
     methods: {
-      tel(){
+      tel(e){
+        e.target.parentElement.className = "sec";
+        e.target.parentElement.nextSibling.className = "";
         this.lables[0].username = "手机号";
         this.lables[1].password = "验证码"
       },
-      acc(){
+      acc(e){
+        e.target.parentElement.className = "sec";
+        e.target.parentElement.previousSibling.className = "";
         this.lables[0].username = "账号";
         this.lables[1].password = "密码";
-        this.username = "";
+        this.account = "";
         this.password = "";
+        // 18866478549
       },
       login(){
-        console.log(111)
+        this.$axios({
+          url: 'http://localhost:3000/api/login',
+          method:"post",
+          data: {
+            account: this.account,
+            password: this.password
+          }
+        }).then(
+          res => {
+            if(res.data.code != 200){
+             this.loginmsg =  res.data.msg
+            }else{
+              localStorage.setItem("token",res.data.token);
+              localStorage.setItem("username",this.account);
+              this.$router.push("/my")
+            }
+          }
+        )
       }
     }
 }
@@ -62,7 +86,7 @@ import Button from '../components/Button.vue'
   margin-bottom: .3rem;
 }
 .loginType a span{
-  font: .5rem/1rem "";
+  font: .4rem/.8rem "";
   margin-left: .6rem;
 }
 .loginType a{
@@ -88,5 +112,23 @@ import Button from '../components/Button.vue'
 }
 .button{
   margin: .8rem 0;
+}
+
+.sec{
+    color:#309AE6;
+    border-bottom: solid 0.1rem#309AE6 
+}
+.loginmsg{
+  font: .4rem/1.3rem "";
+  text-align: center;
+  position: fixed;
+  width: 50%;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  background: #eee;
+  color: #000;
+  border-radius: .3rem;
 }
 </style>

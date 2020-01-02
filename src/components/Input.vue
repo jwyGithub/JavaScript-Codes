@@ -1,5 +1,5 @@
 <template>
-  <div class="input">
+  <div class="j-input">
     <h4>{{label}}：</h4>
     <input :type="isPass" :value="value" @input="$emit('input',$event.target.value)" :placeholder=" '请输入' + label"/>
   </div>
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name:"input",
+  name:"j-input",
   data () { return {} },
   props:{
     value:{
@@ -31,17 +31,17 @@ export default {
 </script>
 
 <style scoped>
-.input{
+.j-input{
   display: flex;
   align-items: center;
   padding: 0 1rem;
 }
-.input h4{
+.j-input h4{
   font: .4rem/1.4rem "";
   width: 3rem;
   text-align: center;
 }
-.input input{
+.j-input input{
     font: .4rem/1rem "";
     border-radius: .2rem;
     border: .01rem solid #000;

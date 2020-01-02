@@ -9,7 +9,7 @@
 
 <script>
 import Banner from '@/components/Banner.vue'
-import Nav from '../layouts/Nav/Nav'
+import Nav from '../layouts/Nav/Nav.vue'
 import List from '../components/List'
 export default {
   name:"home",

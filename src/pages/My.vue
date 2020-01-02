@@ -1,88 +1,88 @@
 <template>
   <div class="my">
-    <div class="member-top">
-      <div class="member-info">
-        <a href="login" class="default-avatar" style="display:block;"></a>
-        <router-link to="/login" class="to-login">点击登陆</router-link>
-      </div>
-      <div class="member-collect">
-        <span>
-          <a href="login">
-            <i class="favorite-goods"></i>
-            <p>商品收藏</p>
-          </a>
-        </span>
-        <span>
-          <a href="login">
-            <i class="favorite-store"></i>
-            <p>店铺收藏</p>
-          </a>
-        </span>
-        <span>
-          <a href="login">
-            <i class="goods-browse"></i>
-            <p>我的足迹</p>
-          </a>
-        </span>
-      </div>
+    <UserInfo :status='this.status'/>
+    <MyInfo/>
+    <ul>
+      <li>
+        <a href="javascript:;">
+          <i></i>
+          <p>订单状态查询</p>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <i></i>
+          <p>售后服务</p>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <i></i>
+          <p>用户设置</p>
+        </a>
+      </li>
+    </ul>
+    <div class="nav-text">
+      <router-link to="/login">登陆</router-link>
+      <router-link to="/reg">注册</router-link>
+      <a href="javascript:void(0);" class="gotop">返回顶部</a>
     </div>
   </div>
 </template>
 
 <script>
+import UserInfo from '../components/UserInfo/UserInfo.vue'
+import MyInfo from '../components/MyInfo/MyInfo.vue'
 export default {
   name: "my",
   data() {
-    return {};
+    return {
+      status:"点击登陆"
+    };
   },
-  components: {},
-  mounted() {},
+  components: {
+    UserInfo,MyInfo
+  },
+  mounted() {
+    let token = localStorage.getItem("token");
+    if(token){
+      let username = localStorage.getItem("username");
+      this.status = username;
+    }
+  },
   updated() {},
   methods: {}
 };
 </script>
 
 <style scoped>
-.member-top {
-    animation: changeBg 20s infinite;
-    background-color: 
-    #ED5564;
-    background-image: url(/wap/images/member_top_bg.png);
-    background-size: cover;
-    text-align: center;
-    width: 100%;
-    height: 7rem;
-    position: relative;
-    z-index: 1;
+.my ul li a{
+  display: flex;
+  align-items: center;
+  background-color:#FFF;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  border-bottom: solid 0.05rem #EEE;
+  padding: 0 .5rem
 }
-.member-info {
-    width: 12rem;
-    height: 6rem;
-    margin: -3.5rem 0 0 -6rem;
-    position: absolute;
-    z-index: 1;
-    top: 69%;
-    left: 50%;
-    animation: memberInfoDown 1000ms ease-in;
-    -webkit-animation: memberInfoDown 1000ms ease-in;}
-  
-  .member-info .default-avatar {
-    background-color: 
-rgba(0,0,0,0.5);
-background-image: url(/wap/images/member_w.png);
-background-repeat: no-repeat;
-background-position: 50% 50%;
-background-size: 60%;
-width: 4rem;
-height: 4rem;
-margin: 0 auto;
-border-radius: 100%;}
+.my ul  li a i{
+  width: .5rem;
+  height: .5rem;
+  background-size: cover;
+}
+.my ul  li:nth-child(1) a i{
+  background-image: url('../assets/img/my-orderstatus.png');
 
-.member-info .to-login {
-    font-size: 0.8rem;
-    color: 
-#FFF;
-line-height: 1rem;
-height: 1rem;
-margin: 0.25rem auto}
+}
+.my ul  li:nth-child(2) a i{
+  background-image: url('../assets/img/my-afterservice.png');
+
+}
+.my ul  li:nth-child(3) a i{
+  background-image: url('../assets/img/my-setting.png');
+  
+}
+.my ul  li p{
+  font: .4rem/1.2rem "";
+  margin: 0 .3rem;
+}
 </style>

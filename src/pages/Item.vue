@@ -1,15 +1,15 @@
 <template>
   <div class="column">
-    <Cell/>
+    <!-- <Cell/> -->
   </div>
 </template>
 
 <script>
-import Cell from '../components/Cell.vue'
+// import Cell from '../components/Cell.vue'
 export default {
   data () { return {} },
   components: {
-    Cell
+    // Cell
   },
   mounted () {},
   updated () {},

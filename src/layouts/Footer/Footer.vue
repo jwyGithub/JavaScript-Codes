@@ -36,9 +36,10 @@ export default {
     background-size: 100%;
     margin: 0 auto;
     margin-bottom: .2rem;
+    margin-top: .2rem;
   }
   .footer a p{
-    font: .25rem/.3rem "";
+    font: .4rem/.5rem "";
   }
   .footer a:nth-child(1) i{
     background-image: url('./imgs/home_b.png')

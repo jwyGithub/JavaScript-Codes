@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 // 3. 路由配置
 
 import Home from '../pages/Home.vue'
+import Lists from '../components/Lists/Lists.vue'
 import Item from '../pages/Item.vue'
 import Search from '../pages/Search.vue'
 import Car from '../pages/Car.vue'
@@ -20,7 +21,14 @@ let routes = [{
   name: 'home',
   path: '/home',
   component: Home
-}, {
+}, 
+{
+  // 时尚服饰列表
+  name:"listsFashion",
+  path:"/list/fashion",
+  component:Lists
+},
+{
   // 分类
   name: 'item',
   path: '/item',
