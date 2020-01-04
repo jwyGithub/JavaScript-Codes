@@ -2,22 +2,22 @@
 <div class="nav">
     <ul>
         <li>
-            <a href="javascript:;" @click="fashion">
+            <router-link to="/list/fashion">
                 <i></i>
                 <p>时尚服饰</p>
-            </a>
-            <a href="javascript:;" @click="business">
+            </router-link>
+            <router-link to="/list/business">
                 <i></i>
                 <p>商业财经</p>
-            </a>
-            <a href="javascript:;" @click="build">
+            </router-link>
+            <router-link to="/list/build">
                 <i></i>
                 <p>建筑地理</p>
-            </a>
-            <a href="javascript:;" @click="current">
+            </router-link>
+            <router-link to="/list/current">
                 <i></i>
                 <p>时政军事</p>
-            </a>
+           </router-link>
         </li>
         <li>
             <a href="javascript:;">
@@ -47,38 +47,7 @@ export default {
         return{}
     },
     methods:{
-        fashion(){
-            this.$axios({
-                url: 'http://localhost:3000/api/fashion'
-            }).then(
-                res => this.$store.state.Lists = res.data.data
-            )
-            this.$router.push("/list/fashion")
-        },
-        business(){
-            this.$axios({
-                url: 'http://localhost:3000/api/business'
-            }).then(
-                res => this.$store.state.Lists = res.data.data
-            )
-            this.$router.push("/list/fashion")
-        },
-        current(){
-            this.$axios({
-                url: 'http://localhost:3000/api/current'
-            }).then(
-                res => this.$store.state.Lists = res.data.data
-            )
-            this.$router.push("/list/fashion")
-        },
-        build(){
-            this.$axios({
-                url: 'http://localhost:3000/api/build'
-            }).then(
-                res => this.$store.state.Lists = res.data.data
-            )
-            this.$router.push("/list/fashion")
-        }
+      
     }
 }
 </script>
@@ -87,19 +56,24 @@ export default {
 .nav ul{
     background-image: url('./imgs/wapnac_bg.png');
     background-size: 100%;
+    padding: 10px 0;
 }
 .nav ul li{
     display: flex;
     justify-content: space-around;
-    margin: .2rem 0;    
+    margin: 5px 0;   
 }
 .nav ul li a i{
     display: block;
-    width: 1rem;
-    height: 1rem;
+    width: 30px;
+    height: 30px;
     background-size: 100%;
-    margin-bottom:.1rem; 
+    margin-bottom:3px; 
     margin: 0 auto;
+}
+.nav ul li a p{
+    font: 16px/2 "";
+    margin-top: 3px;
 }
 .nav ul li:nth-child(1) a:nth-child(1) i {
     background-image:url('./imgs/icon-sycj-01.png')

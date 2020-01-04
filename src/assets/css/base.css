@@ -4,6 +4,7 @@ body,ol,ul,h1,h2,h3,h4,h5,h6,p,dl,dd,fieldset,legend,input,textarea,select {
 body{
     font:12px  "";
     word-wrap:break-word;/*单词换行*/
+    font-family: 'Heiti, Heiti SC, DroidSans, DroidSansFallback, Arial, "Microsoft YaHei"';
 }
 
 /* 去掉线 */
@@ -55,7 +56,7 @@ li {
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     overflow: hidden;
 }
 

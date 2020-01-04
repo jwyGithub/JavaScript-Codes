@@ -4,9 +4,9 @@ import VueRouter from 'vue-router'
 
 // 3. 路由配置
 
-import Home from '../pages/Home.vue'
-import Lists from '../components/Lists/Lists.vue'
-import Item from '../pages/Item.vue'
+// import Home from '../pages/Home.vue'
+// import Lists from '../components/Lists/Lists.vue'
+// import Item from '../pages/Item.vue'
 import Search from '../pages/Search.vue'
 import Car from '../pages/Car.vue'
 import My from '../pages/My.vue'
@@ -20,51 +20,53 @@ let routes = [{
   // 首页
   name: 'home',
   path: '/home',
-  component: Home
-}, 
+  component: () => import(/* webpackChunkName : "home" */ '../pages/Home.vue')
+},
 {
-  // 时尚服饰列表
-  name:"listsFashion",
-  path:"/list/fashion",
-  component:Lists
+  // 列表
+  name: "lists",
+  path: "/list/:type",
+  component: () => import(/* webpackChunkName : "lists" */ '../components/Lists/Lists.vue')
 },
 {
   // 分类
   name: 'item',
   path: '/item',
-  component: Item
+  component: () => import(/* webpackChunkName : "item" */ '../pages/Item.vue')
 },
-  // 搜索
-{ name: 'search',
+// 搜索
+{
+  name: 'search',
   path: '/search',
-  component: Search
+  component: () => import(/* webpackChunkName : "search" */ '../pages/Search.vue')
 },
-  // 购物车
+// 购物车
 {
   name: 'car',
   path: '/car',
-  component: Car
+  component: () => import(/* webpackChunkName : "search" */ '../pages/Car.vue')
 },
 // 我的
 {
   name: 'my',
   path: '/my',
-  component: My
+  component: () => import(/* webpackChunkName : "my" */ '../pages/My.vue')
 },
 // 登陆
 {
   name: 'login',
   path: '/login',
-  component: Login
+  component: () => import(/* webpackChunkName : "login" */ '../pages/Login.vue')
 },
-  // 注册
+// 注册
 {
   name: 'reg',
   path: '/reg',
-  component: Reg
+  component: () => import(/* webpackChunkName : "reg" */ '../pages/Reg.vue')
 },
-  // 默认页面
-{ path: '/',
+// 默认页面
+{
+  path: '/',
   redirect: '/home'
 }
 ]

@@ -1,7 +1,7 @@
 <template>
   <div class="my">
-    <UserInfo :status='this.status'/>
-    <MyInfo/>
+    <UserInfo :status="this.status" />
+    <MyInfo />
     <ul>
       <li>
         <a href="javascript:;">
@@ -31,21 +31,22 @@
 </template>
 
 <script>
-import UserInfo from '../components/UserInfo/UserInfo.vue'
-import MyInfo from '../components/MyInfo/MyInfo.vue'
+import UserInfo from "../components/UserInfo/UserInfo.vue";
+import MyInfo from "../components/MyInfo/MyInfo.vue";
 export default {
   name: "my",
   data() {
     return {
-      status:"点击登陆"
+      status: "点击登陆"
     };
   },
   components: {
-    UserInfo,MyInfo
+    UserInfo,
+    MyInfo
   },
   mounted() {
     let token = localStorage.getItem("token");
-    if(token){
+    if (token) {
       let username = localStorage.getItem("username");
       this.status = username;
     }
@@ -56,33 +57,30 @@ export default {
 </script>
 
 <style scoped>
-.my ul li a{
+.my ul li a {
   display: flex;
   align-items: center;
-  background-color:#FFF;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
-  border-bottom: solid 0.05rem #EEE;
-  padding: 0 .5rem
+  background-color: #fff;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  border-bottom: solid 1px #eee;
+  padding: 0 10px;
 }
-.my ul  li a i{
-  width: .5rem;
-  height: .5rem;
+.my ul li a i {
+  width: 30px;
+  height: 30px;
   background-size: cover;
 }
-.my ul  li:nth-child(1) a i{
-  background-image: url('../assets/img/my-orderstatus.png');
-
+.my ul li:nth-child(1) a i {
+  background-image: url("../assets/img/my-orderstatus.png");
 }
-.my ul  li:nth-child(2) a i{
-  background-image: url('../assets/img/my-afterservice.png');
-
+.my ul li:nth-child(2) a i {
+  background-image: url("../assets/img/my-afterservice.png");
 }
-.my ul  li:nth-child(3) a i{
-  background-image: url('../assets/img/my-setting.png');
-  
+.my ul li:nth-child(3) a i {
+  background-image: url("../assets/img/my-setting.png");
 }
-.my ul  li p{
-  font: .4rem/1.2rem "";
-  margin: 0 .3rem;
+.my ul li p {
+  font: 18px/2.2 "";
+  margin: 0 5px;
 }
 </style>

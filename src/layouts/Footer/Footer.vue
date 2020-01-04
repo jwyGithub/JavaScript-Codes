@@ -27,19 +27,18 @@ export default {
     justify-content: space-around;
     width: 100%;
     background: #e5e5e5;
-    padding: .1rem 0;
   }
   .footer a i{
     display: block;
-    width: .42rem;
-    height: .42rem;
+    width: 20px;
+    height: 20px;
     background-size: 100%;
     margin: 0 auto;
-    margin-bottom: .2rem;
-    margin-top: .2rem;
+    margin-bottom: 7px;
+    margin-top:7px;
   }
   .footer a p{
-    font: .4rem/.5rem "";
+    font: 16px/20px "";
   }
   .footer a:nth-child(1) i{
     background-image: url('./imgs/home_b.png')

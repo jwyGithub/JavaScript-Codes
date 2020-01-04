@@ -3,7 +3,7 @@
     <div class="member-top">
       <div class="member-info clearfix">
         <a href="javascript:;" class="default-avatar" style="display:block;"></a>
-        <a href="javascript:;"  class="to-login" @click="login">{{status}}</a>
+        <a href="javascript:;" class="to-login" @click="login">{{status}}</a>
       </div>
     </div>
   </div>
@@ -15,23 +15,21 @@ export default {
   data() {
     return {};
   },
-  props:{
-    status:{
-      type:[String,Number],
-      default:"点击登陆"
+  props: {
+    status: {
+      type: [String, Number],
+      default: "点击登陆"
     }
-
   },
   components: {},
-  mounted() {
-  },
+  mounted() {},
   updated() {},
   methods: {
-    login(){
-      if(this.status != "点击登陆"){
-          return;
-      }else{
-        this.$router.push("/login")
+    login() {
+      if (this.status != "点击登陆") {
+        return;
+      } else {
+        this.$router.push("/login");
       }
     }
   }
@@ -40,27 +38,27 @@ export default {
 
 <style scoped>
 .member-top {
-    background-color: #ED5564;
-    background-image: url(/wap/images/member_top_bg.png);
-    background-size: cover;
-    text-align: center;
-    width: 100%;
+  background-color: #ed5564;
+  background-image: url(/wap/images/member_top_bg.png);
+  background-size: cover;
+  text-align: center;
+  width: 100%;
 }
 .member-info .default-avatar {
-    background-color: rgba(0,0,0,0.5);
-    background-image: url('./img/default.png');
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 60%;
-    width: 2.8rem;
-    height: 2.8rem;
-    margin: 0 auto;
-    border-radius: 100%;
-    margin-top: .8rem
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url("./img/default.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 60%;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 100%;
+  margin-top: 20px;
 }
 
 .member-info .to-login {
-    color: #FFF;
-    font: .5rem/1.5rem ""
+  color: #fff;
+  font: 26px/60px "";
 }
 </style>

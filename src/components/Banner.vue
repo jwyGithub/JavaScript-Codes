@@ -71,25 +71,24 @@ export default {
 }
 .text-box{
   width:100%;
-  padding:0 0.3rem;
-  height:1.24rem;
+  padding:0 10px;
   position:absolute;
-  left:0; bottom:0;
+  left:0; 
+  bottom:0;
   color:#000;
   background:rgba(255,255,255,0.4);
 }
 .text-box h2{
-  font-size:0.3rem;
+  font: 16px/20px "";
   font-weight:normal;
-  margin-top:0.22rem;
-  line-height:100%;
-  margin-bottom:0.22rem;
+  margin: 3px 0;
   overflow:hidden;
   white-space:nowrap;
   text-overflow:ellipsis;
 }
 .text-box p{
-  line-height:100%;
+  font: 14px/18px "";
+  height: 18px;
 }
 .overmore {
   word-break: break-all;

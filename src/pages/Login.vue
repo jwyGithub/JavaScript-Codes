@@ -14,7 +14,7 @@
     <Input :label="lables[0].username" v-model="account"/>
     <Input :label="lables[1].password" v-model="password" isPass="password"/>
     <Button value="登陆" @click.native="login"/>
-    <div class="loginmsg">{{loginmsg}}</div>
+    <!-- <mt-button type="default">登陆</mt-button> -->
   </div>
 </template>
 
@@ -22,6 +22,7 @@
 import Header from '../layouts/Header/Header.vue'
 import Input from '../components/Input.vue'
 import Button from '../components/Button.vue'
+import { Toast } from 'mint-ui';
   export default {
     name:"login",
     data(){return {
@@ -65,7 +66,11 @@ import Button from '../components/Button.vue'
         }).then(
           res => {
             if(res.data.code != 200){
-             this.loginmsg =  res.data.msg
+             Toast({
+                message: res.data.msg,
+                position: 'middle',
+                duration: 2000
+             });
             }else{
               localStorage.setItem("token",res.data.token);
               localStorage.setItem("username",this.account);
@@ -118,17 +123,5 @@ import Button from '../components/Button.vue'
     color:#309AE6;
     border-bottom: solid 0.1rem#309AE6 
 }
-.loginmsg{
-  font: .4rem/1.3rem "";
-  text-align: center;
-  position: fixed;
-  width: 50%;
-  top: 50%;
-  right: 0;
-  left: 0;
-  margin: 0 auto;
-  background: #eee;
-  color: #000;
-  border-radius: .3rem;
-}
+
 </style>
