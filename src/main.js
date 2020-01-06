@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from '@/layouts/App.vue'
+import App from './App.vue'
 
 // 引入路由
 import router from './plugins/router.js'
@@ -31,9 +31,10 @@ import 'mint-ui/lib/style.css'
 
 // 引入vantUI样式
 import 'vant/lib/index.css';
-
 import { Search } from "vant";
+import { Field } from 'vant';
 
+Vue.use(Field);
 
 Vue.use(Search);
 

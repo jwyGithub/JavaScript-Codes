@@ -2,10 +2,6 @@
   <div class="lists">
     <div class="header">
       <a href="javascript:history.go(-1)" class="back"></a>
-      <!-- <form>
-                <i></i>
-                <input type="text" placeholder="请输入杂志关键词">
-      </form>-->
       <form action="/">
         <van-search
           v-model="value"
@@ -32,7 +28,7 @@
 </template>
 
 <script>
-import Cell from "../../layouts/Cell/Cell.vue";
+import Cell from "../../../components/Cell/Cell";
 
 export default {
   name: "lists",
@@ -54,9 +50,10 @@ export default {
     }
   },
   mounted() {
+    console.log(this.$route)
     this.$axios({
-      url: `http://localhost:3000/api${this.$route.path}`
-    }).then(res => (this.Lists = res.data.data));
+      url: `http://localhost:3000/api/list/${this.$route.params.type}?dataName=${this.$route.params.type}`
+    }).then(res => (this.Lists = res.data.list));
   }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="list">
     <div v-for="(item,index) in data" :key="index">
-      <h3><img src="./s0_05646744256521730.png" alt=""></h3>
+      <h3><img src="" alt=""></h3>
       <ul class="top clearfix">
         <li class="main">
           <a>

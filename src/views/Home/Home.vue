@@ -2,15 +2,15 @@
   <div class="home">
     <Banner/>
     <Nav/>
-    <img src="../assets/img/lq.png" alt="" class="lq">
+    <img src="" alt="" class="lq">
     <List :data='list'/>
   </div>
 </template>
 
 <script>
-import Banner from '@/components/Banner.vue'
-import Nav from '../layouts/Nav/Nav.vue'
-import List from '../components/List'
+import Banner from './Banner.vue'
+import Nav from './Nav/Nav.vue'
+import List from '../Home/List.vue'
 export default {
   name:"home",
   data () {

@@ -24,9 +24,7 @@ export default {
 
 <style scoped>
 .top{
-  display: block;
   width: 100%;
-  height: 20%;
   margin: 0 auto;
   text-align: center;
   background: #F8F8F8;
@@ -34,17 +32,17 @@ export default {
 .top a.home{
   float: left;
   display: block;
-  margin: auto 0;
+  margin-top: 10px;
+  margin-left: 10px
 }
 .top p{
-  font-size: 0.6rem;
-  line-height: 1.2rem;
+  font: 20px/2 "";
 }
 .top a.home i{
   background-image: url('./imgs/home_b.png');
   display: block;
   background-size: 100%;
-  width: .5rem;
-  height: .5rem;
+  width: 20px;
+  height: 20px;
 }
 </style>

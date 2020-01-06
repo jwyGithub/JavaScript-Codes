@@ -2,19 +2,19 @@
 <div class="nav">
     <ul>
         <li>
-            <router-link to="/list/fashion">
+            <router-link to="/list/fashion?dataName=fashion">
                 <i></i>
                 <p>时尚服饰</p>
             </router-link>
-            <router-link to="/list/business">
+            <router-link to="/list/business?dataName=business">
                 <i></i>
                 <p>商业财经</p>
             </router-link>
-            <router-link to="/list/build">
+            <router-link to="/list/build?dataName=build">
                 <i></i>
                 <p>建筑地理</p>
             </router-link>
-            <router-link to="/list/current">
+            <router-link to="/list/current?dataName=current">
                 <i></i>
                 <p>时政军事</p>
            </router-link>

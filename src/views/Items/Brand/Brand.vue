@@ -21,8 +21,8 @@ export default {
   },
   beforeMount() {
     this.$axios({
-      url: `http://localhost:3000/api/item/brand?dataName=Brand`
-    }).then(res => (this.list = res.data.data));
+      url: `http://localhost:3000/api/item?dataName=brand`
+    }).then(res => (this.list = res.data.list));
   }
 };
 </script>

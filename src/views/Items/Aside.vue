@@ -70,91 +70,85 @@ export default {
   methods: {
     business() {
       this.$emit("getList", {
-        dataName: "Business",
+        dataName: "business",
         isShow: "public"
       });
     },
     brand() {
       this.$emit("getList", {
-        dataName: "Brand",
+        dataName: "brand",
         isShow: "brand"
       });
     },
     education() {
       this.$emit("getList", {
-        dataName: "Education",
+        dataName: "education",
         isShow: "public"
       });
     },
     build() {
       this.$emit("getList", {
-        dataName: "Build",
+        dataName: "build",
         isShow: "public"
       });
     },
     fashion() {
       this.$emit("getList", {
-        dataName: "Fashion",
+        dataName: "fashion",
         isShow: "public"
       });
     },
     art() {
       this.$emit("getList", {
-        dataName: "Art",
+        dataName: "art",
         isShow: "public"
       });
     },
     travel() {
       this.$emit("getList", {
-        dataName: "Travel",
+        dataName: "travel",
         isShow: "public"
       });
     },
     current() {
       this.$emit("getList", {
-        dataName: "Current",
+        dataName: "current",
         isShow: "public"
-      });
-    },
-    brand() {
-      this.$emit("getList", {
-        dataName: "Brand",
-        isShow: "brand"
       });
     },
     car() {
       this.$emit("getList", {
-        dataName: "Car",
+        dataName: "car",
         isShow: "public"
       });
     },
     medical() {
       this.$emit("getList", {
-        dataName: "Medical",
+        dataName: "food",
         isShow: "public"
       });
     },
     technology() {
       this.$emit("getList", {
-        dataName: "Technology",
+        dataName: "technology",
         isShow: "public"
       });
     },
     moive() {
       this.$emit("getList", {
-        dataName: "Movie",
+        dataName: "movie",
         isShow: "public"
       });
     },
     language() {
       this.$emit("getList", {
-        dataName: "Languages",
+        dataName: "languages",
         isShow: "public"
       });
     },
     report() {
       this.$emit("getList", {
-        dataName: "Report",
+        dataName: "report",
         isShow: "public"
       });
     }

@@ -5,8 +5,8 @@
   </div>
 </template>
 <script>
-import Home from '../pages/Home.vue'
-import Footer from '../layouts/Footer/Footer'
+import Home from './views/Home/Home.vue'
+import Footer from './components/Footer/Footer'
 
 export default {
   components: {

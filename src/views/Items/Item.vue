@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import Aside from "../components/Items/Aside";
+import Aside from "./Aside";
 
-import Article from "../components/Items/Article";
+import Article from "./Article";
 export default {
   name: "item",
   data() {
@@ -48,8 +48,8 @@ export default {
     getList(type) {
       this.isShow = type.isShow;
       this.$axios({
-        url: `http://localhost:3000/api/item/brand?dataName=${type.dataName}`
-      }).then(res => (this.list = res.data.data));
+        url: `http://localhost:3000/api/item?dataName=${type.dataName}`
+      }).then(res => this.list =  res.data.list);
     },
     onSearch() {
       console.log("onSearch");

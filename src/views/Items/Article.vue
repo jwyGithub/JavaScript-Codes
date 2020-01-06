@@ -7,7 +7,7 @@
 
 
 <script>
-import Brand from "../Items/Brand/Brand";
+import Brand from "./Brand/Brand";
 import Public from "./Public";
 
 export default {

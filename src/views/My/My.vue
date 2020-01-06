@@ -19,7 +19,7 @@
         <a href="javascript:;">
           <i></i>
           <p>用户设置</p>
-        </a>
+           </a>
       </li>
     </ul>
     <div class="nav-text">
@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import UserInfo from "../components/UserInfo/UserInfo.vue";
-import MyInfo from "../components/MyInfo/MyInfo.vue";
+import UserInfo from "./UserInfo/UserInfo.vue";
+import MyInfo from "./MyInfo/MyInfo.vue";
 export default {
   name: "my",
   data() {
@@ -71,13 +71,13 @@ export default {
   background-size: cover;
 }
 .my ul li:nth-child(1) a i {
-  background-image: url("../assets/img/my-orderstatus.png");
+  background-image: url("../../assets/img/my-orderstatus.png");
 }
 .my ul li:nth-child(2) a i {
-  background-image: url("../assets/img/my-afterservice.png");
+  background-image: url("../../assets/img/my-afterservice.png");
 }
 .my ul li:nth-child(3) a i {
-  background-image: url("../assets/img/my-setting.png");
+  background-image: url("../../assets/img/my-setting.png");
 }
 .my ul li p {
   font: 18px/2.2 "";

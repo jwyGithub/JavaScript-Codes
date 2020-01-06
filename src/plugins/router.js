@@ -20,50 +20,50 @@ let routes = [{
   // 首页
   name: 'home',
   path: '/home',
-  component: () => import(/* webpackChunkName : "home" */ '../pages/Home.vue')
+  component: () => import(/* webpackChunkName : "home" */ '../views/Home/Home.vue')
 },
 {
   // 列表
   name: "lists",
   path: "/list/:type",
-  component: () => import(/* webpackChunkName : "lists" */ '../components/Lists/Lists.vue')
+  component: () => import(/* webpackChunkName : "lists" */ '../views/Home/Lists/Lists.vue')
 },
 {
   // 分类
   name: 'item',
   path: '/item',
-  component: () => import(/* webpackChunkName : "item" */ '../pages/Item.vue')
+  component: () => import(/* webpackChunkName : "item" */ '../views/Items/Item.vue')
 },
 // 搜索
 {
   name: 'search',
   path: '/search',
-  component: () => import(/* webpackChunkName : "search" */ '../pages/Search.vue')
+  component: () => import(/* webpackChunkName : "search" */ '../views/Search/Search.vue')
 },
 // 购物车
 {
   name: 'car',
   path: '/car',
-  component: () => import(/* webpackChunkName : "search" */ '../pages/Car.vue')
+  component: () => import(/* webpackChunkName : "search" */ '../views/Car/Car.vue')
 },
 // 我的
 {
   name: 'my',
   path: '/my',
-  component: () => import(/* webpackChunkName : "my" */ '../pages/My.vue')
+  component: () => import(/* webpackChunkName : "my" */ '../views/My/My.vue')
 },
 // 登陆
 {
   name: 'login',
   path: '/login',
-  component: () => import(/* webpackChunkName : "login" */ '../pages/Login.vue')
+  component: () => import(/* webpackChunkName : "login" */ '../views/Login/Login.vue')
 },
 // 注册
-{
-  name: 'reg',
-  path: '/reg',
-  component: () => import(/* webpackChunkName : "reg" */ '../pages/Reg.vue')
-},
+// {
+//   name: 'reg',
+//   path: '/reg',
+//   component: () => import(/* webpackChunkName : "reg" */ '../pages/Reg.vue')
+// },
 // 默认页面
 {
   path: '/',

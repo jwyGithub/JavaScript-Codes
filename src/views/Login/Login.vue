@@ -11,17 +11,20 @@
           <span @click="acc" >账号密码登陆</span>
         </a>
     </div>
-    <Input :label="lables[0].username" v-model="account"/>
-    <Input :label="lables[1].password" v-model="password" isPass="password"/>
+    <!-- <Input :label="lables[0].username" v-model="account"/>
+    <Input :label="lables[1].password" v-model="password" isPass="password"/> -->
+    <component :is="'AccLogin'"></component>
     <Button value="登陆" @click.native="login"/>
     <!-- <mt-button type="default">登陆</mt-button> -->
   </div>
 </template>
 
 <script>
-import Header from '../layouts/Header/Header.vue'
-import Input from '../components/Input.vue'
-import Button from '../components/Button.vue'
+import Header from '../../components/Header/Header.vue'
+import AccLogin from './LoginType/AccLogin'
+import TelLogin from './LoginType/TelLogin'
+// import Input from '../components/Input.vue'
+import Button from '@/components/Button.vue'
 import { Toast } from 'mint-ui';
   export default {
     name:"login",
@@ -35,26 +38,11 @@ import { Toast } from 'mint-ui';
       loginmsg:""
     }},
     components:{
-      Header,Input,Button
+      Header,Button,AccLogin,TelLogin
     },
     mounted(){},
     updated(){},
     methods: {
-      tel(e){
-        e.target.parentElement.className = "sec";
-        e.target.parentElement.nextSibling.className = "";
-        this.lables[0].username = "手机号";
-        this.lables[1].password = "验证码"
-      },
-      acc(e){
-        e.target.parentElement.className = "sec";
-        e.target.parentElement.previousSibling.className = "";
-        this.lables[0].username = "账号";
-        this.lables[1].password = "密码";
-        this.account = "";
-        this.password = "";
-        // 18866478549
-      },
       login(){
         this.$axios({
           url: 'http://localhost:3000/api/login',
@@ -87,36 +75,36 @@ import { Toast } from 'mint-ui';
 .loginType{
   display: flex;
   justify-content: space-around;
-  border-bottom: solid 0.05rem #EEE;
-  margin-bottom: .3rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 5px;
 }
 .loginType a span{
-  font: .4rem/.8rem "";
-  margin-left: .6rem;
+  font: 16px/40px "";
+  margin-left: 25px;
 }
 .loginType a{
   position: relative;
-  line-height: 1.5rem
+  line-height: 40px
 }
 .loginType a i{
   position: absolute;
-  width: .5rem;
-  height: .5rem;
+  width: 20px;
+  height: 20px;
   top: 0;
   bottom: 0;
   margin: auto 0;
 }
 .loginType a:nth-child(1) i{
-  background-image: url('../assets/img/login-tel.png');
+  background-image: url('../../assets/img/login-tel.png');
   background-size: 100%;
   margin: auto 0;
 }
 .loginType a:nth-child(2) i{
-  background-image: url('../assets/img/login-acc.png');
+  background-image: url('../../assets/img/login-acc.png');
   background-size: 100%;
 }
 .button{
-  margin: .8rem 0;
+  font: 16px/2 "";
 }
 
 .sec{
