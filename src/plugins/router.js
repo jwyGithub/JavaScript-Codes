@@ -21,9 +21,9 @@ let routes = [{
   component: () => import(/* webpackChunkName : "lists" */ '../views/Home/Lists/Lists.vue')
 },
 {
-  name:"info",
-  path:"/goods/info",
-  component : ()=>import(/* webpackChunkName : "lists" */ '../views/GoodsInfo/GoodsInfo.vue')
+  name: "info",
+  path: "/goods/info",
+  component: () => import(/* webpackChunkName : "lists" */ '../views/GoodsInfo/GoodsInfo.vue')
 },
 {
   // 分类
@@ -56,11 +56,11 @@ let routes = [{
   component: () => import(/* webpackChunkName : "login" */ '../views/Login/Login.vue')
 },
 // 注册
-// {
-//   name: 'reg',
-//   path: '/reg',
-//   component: () => import(/* webpackChunkName : "reg" */ '../pages/Reg.vue')
-// },
+{
+  name: 'reg',
+  path: '/reg',
+  component: () => import(/* webpackChunkName : "reg" */ '../views/Reg/reg.vue')
+},
 // 默认页面
 {
   path: '/',

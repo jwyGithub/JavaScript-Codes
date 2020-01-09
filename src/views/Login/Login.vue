@@ -43,7 +43,7 @@ export default {
   methods: {
     login() {
       this.$axios({
-        url: "http://wssd.f3322.net:13140/api/login",
+        url: `${baseUrl}/api/login`,
         method: "post",
         data: {
           account: this.account,
@@ -56,7 +56,8 @@ export default {
         } else {
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("username", this.username);
-          this.$router.push("/my");
+          console.log(res.data)
+          // this.$router.push("/my");
         }
       });
     }

@@ -55,7 +55,7 @@ export default {
   },
   props: {
     data: {
-      type: [String, Array],
+      type: [String, Array,Object],
       default: ""
     }
   },

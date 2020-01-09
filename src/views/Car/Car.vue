@@ -30,9 +30,9 @@ export default {
       this.data = JSON.parse(localdata);
     } else {
       this.$axios({
-        url: `http://wssd.f3322.net:13140/api/carinfo?user=${user}`
+        url: `${baseUrl}/api/carinfo?user=${user}`
       }).then(res => {
-        this.data = res.data;
+        this.data = res.data.carinfo;
       });
     }
   },

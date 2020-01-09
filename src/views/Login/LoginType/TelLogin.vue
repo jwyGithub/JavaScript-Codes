@@ -27,7 +27,7 @@ export default {
   methods: {
     login() {
       this.$axios({
-        url: "http://wssd.f3322.net:13140/api/login",
+        url: `${baseUrl}/api/login`,
         method: "post",
         data: {
           account: this.account,

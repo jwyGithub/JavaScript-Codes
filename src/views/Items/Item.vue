@@ -48,7 +48,7 @@ export default {
     getList(type) {
       this.isShow = type.isShow;
       this.$axios({
-        url: `http://wssd.f3322.net:13140/api/item?dataName=${type.dataName}`
+        url: `${baseUrl}/api/item?dataName=${type.dataName}`
       }).then(res => this.list =  res.data.list);
     },
     onSearch() {

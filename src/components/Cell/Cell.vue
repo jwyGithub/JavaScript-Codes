@@ -58,7 +58,7 @@ export default {
 }
 .cell li a img {
   width: 120px;
-  height: auto;
+  height: 120px;
   vertical-align: middle;
 }
 .cell li a .con {

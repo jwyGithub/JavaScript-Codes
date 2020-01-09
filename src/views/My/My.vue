@@ -1,6 +1,13 @@
 <template>
   <div class="my">
-    <UserInfo :status="this.status" />
+    <div class="member-top">
+      <div class="member-info clearfix">
+        <a href="javascript:;" class="default-avatar" style="display:block;">
+          <img :src="icon" alt class="icon" />
+        </a>
+        <a href="javascript:;" class="to-login">{{user}}</a>
+      </div>
+    </div>
     <MyInfo />
     <ul>
       <li>
@@ -19,41 +26,49 @@
         <a href="javascript:;">
           <i></i>
           <p>用户设置</p>
-           </a>
+        </a>
       </li>
     </ul>
-    <div class="nav-text" v-show="isShow">
-      <router-link to="/login">登陆</router-link>
-      <router-link to="/reg">注册</router-link>
-      <a href="javascript:void(0);" class="gotop">返回顶部</a>
-    </div>
-    <div class="copyright">
-      <p>Copyright &copy; 2002-2019 杂志网 www.zazhi.com </p>
-    </div>
+    <component :is="show"></component>
   </div>
 </template>
 
 <script>
-import UserInfo from "./UserInfo/UserInfo.vue";
 import MyInfo from "./MyInfo/MyInfo.vue";
+import Haveinfo from "./Logtype/Haveinfo";
+import Noinfo from "./Logtype/Noinfo";
 export default {
   name: "my",
   data() {
     return {
-      status: "点击登陆",
-      isShow:true
+      isShow: true,
+      user: "",
+      icon: "",
+      show: "Noinfo"
     };
   },
   components: {
-    UserInfo,
-    MyInfo
+    MyInfo,
+    Noinfo,
+    Haveinfo
   },
   mounted() {
     let token = localStorage.getItem("token");
-    if (token) {
-      this.isShow = false
+    if (!token) {
+      this.user = "请登录";
+    } else {
       let username = localStorage.getItem("username");
-      this.status = username;
+      if (!username) {
+        return false;
+      } else {
+        this.$axios({
+          url: `${baseUrl}/api/info?account=${username}`
+        }).then(res => {
+          this.show = "Haveinfo";
+          this.user = res.data.nickname;
+          this.icon = `${baseUrl}${res.data.icon}`;
+        });
+      }
     }
   },
   updated() {},
@@ -62,6 +77,38 @@ export default {
 </script>
 
 <style scoped>
+.member-top {
+  background-color: #ed5564;
+  /* background-image: url(/wap/images/member_top_bg.png); */
+  background-size: cover;
+  text-align: center;
+  width: 100%;
+}
+.icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+.member-info .default-avatar {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* background-image: url("./img/default.png"); */
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 60%;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 100%;
+  margin-top: 25px;
+}
+
+.member-info .to-login {
+  color: #fff;
+  font-size: 26px;
+  line-height: 60px;
+  height: 60px;
+  display: block;
+}
 .my ul li {
   margin: 5px 0;
 }
@@ -92,11 +139,11 @@ export default {
   line-height: 39.6px;
   margin: 0 10px;
 }
-.copyright{
+.copyright {
   text-align: center;
-  margin-top: 100px
+  margin-top: 100px;
 }
-.copyright p{
+.copyright p {
   font-size: 12px;
   line-height: 24px;
 }

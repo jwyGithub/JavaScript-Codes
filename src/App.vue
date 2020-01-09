@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Loading v-show="$store.state.lodingStatus" />
     <transition>
       <router-view></router-view>
     </transition>
@@ -10,6 +11,7 @@
 <script>
 import Home from "./views/Home/Home.vue";
 import Footer from "./components/Footer/Footer";
+import Loading from "./components/Loading";
 
 export default {
   name: "app",
@@ -19,7 +21,8 @@ export default {
     };
   },
   components: {
-    Footer
+    Footer,
+    Loading
   },
   watch: {
     $route() {

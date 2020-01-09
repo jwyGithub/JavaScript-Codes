@@ -37,7 +37,7 @@ let actions = {
 
 
     axios({
-      url: "http://wssd.f3322.net:13140/api/carinfo",
+      url: `${baseUrl}/api/carinfo`,
       method: "post",
       data: {
         carinfo: arr

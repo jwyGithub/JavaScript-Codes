@@ -61,7 +61,7 @@ export default {
   },
   mounted() {
     this.$axios({
-      url: `http://wssd.f3322.net:13140/api/list/${this.$route.params.type}?dataName=${this.$route.params.type}`
+      url: `${baseUrl}/api/list/${this.$route.params.type}?dataName=${this.$route.params.type}`
     }).then(res => (this.Lists = res.data.list));
   }
 };

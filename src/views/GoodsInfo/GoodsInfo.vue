@@ -51,7 +51,7 @@
     </div>
     <Add @click.native="showPopup" />
     <!-- prop弹出层  -->
-    <van-popup v-model="show" position="bottom" :style="{ height: '60%' }">
+    <van-popup v-model="show" position="bottom" style="height:80% ">
       <div class="top">
         <img :src="datas.goods_image" />
         <div class="top-detail">
@@ -184,7 +184,7 @@ export default {
     // 获取查询详情的商品id
     this.good_id = this.$route.params.id || localStorage.getItem("goodId");
     this.$axios({
-      url: `http://wssd.f3322.net:13140/api/goodsinfo?id=${this.good_id}`
+      url: `${baseUrl}/api/goodsinfo?id=${this.good_id}`
     }).then(res => {
       //   console.log(res.data.datas.goods_info.goods_name);
       this.CarGoodInfo.id = res.data.goods_id;
@@ -239,7 +239,7 @@ export default {
 
 .good_img {
   display: block;
-  height: auto;
+  height: 100%;
   width: 80%;
   margin: 0 auto;
 }
@@ -269,7 +269,8 @@ export default {
   border-bottom: solid 1px #eee;
 }
 .discount span {
-  font-size: 16px;line-height: 50px;
+  font-size: 16px;
+  line-height: 50px;
   color: #888;
 }
 .discount i {
@@ -328,7 +329,7 @@ export default {
 }
 .top img {
   width: 30%;
-  height: auto;
+  height: 100%;
 }
 .top-detail h3 {
   font-size: 18px;
@@ -369,11 +370,12 @@ export default {
 .buycount {
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
+  align-items: center;
+  height: 60px;
 }
 .buycount span {
   font-size: 16px;
-  line-height: 32px
+  line-height: 32px;
 }
 
 .addcar {
@@ -387,7 +389,7 @@ export default {
 .add {
   display: flex;
   width: 100%;
-  position: absolute;
+  position: relative;
   bottom: 0;
 }
 .add li:nth-child(1) {
@@ -398,7 +400,8 @@ export default {
 .add li:nth-child(2) {
   flex: 3;
   text-align: center;
-  font-size: 20px;line-height: 50px;
+  font-size: 20px;
+  line-height: 50px;
   background: #fb6e52;
 }
 .add li:nth-child(2) a {

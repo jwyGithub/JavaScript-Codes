@@ -39,10 +39,10 @@ export default {
   },
   beforeMount() {
     this.$axios({
-      url: "http://wssd.f3322.net:13140/api/keywords"
+      url: `${baseUrl}/api/keywords`
     }).then(res => (this.hotlist = res.data.list));
     this.$axios({
-      url: "http://wssd.f3322.net:13140/api/history"
+      url: `${baseUrl}/api/history`
     }).then(res => (this.historylist = res.data));
   },
   methods: {

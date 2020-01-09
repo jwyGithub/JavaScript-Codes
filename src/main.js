@@ -2,9 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 
 //全局 baseUrl
-// let config = require('../config/config')
-// window.baseUrl = config.baseUrl.localhost_http
-// Vue.prototype.http://wssd.f3322.net:13140 = config.baseUrl.localhost_http;
+let config = require('../config/config')
+window.baseUrl = config.baseUrl.localhost_http
 
 // 引入路由
 import router from './plugins/router.js'
@@ -18,7 +17,7 @@ import vueSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 
 // 引入基础样式
-import './assets/css/base.css' 
+import './assets/css/base.css'
 
 // 引入字体比例校验 js
 // import '@/assets/js/font.js' 
@@ -40,7 +39,6 @@ Vue.use(Lazyload);
 // 引入vantUI样式
 import Vant from 'vant';
 import 'vant/lib/index.css';
-
 
 
 Vue.use(Vant);
