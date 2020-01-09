@@ -36,7 +36,8 @@ export default {
   margin-left: 10px
 }
 .top p{
-  font: 20px/2 "";
+  font-size: 20px;
+  line-height: 40px;
 }
 .top a.home i{
   background-image: url('./imgs/home_b.png');

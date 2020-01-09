@@ -25,7 +25,7 @@ export default {
   },
   mounted () {
     this.$axios({
-      url: 'http://localhost:3000/api/home'
+      url: 'http://wssd.f3322.net:13140/api/home'
     }).then(
       res => this.list = res.data.data
     )

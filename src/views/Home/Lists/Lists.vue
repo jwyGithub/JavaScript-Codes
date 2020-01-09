@@ -23,12 +23,12 @@
       </a>
     </div>
 
-    <Cell :data="Lists" />
+    <Cell :data="Lists" v-on:getDetail="getDetail" />
   </div>
 </template>
 
 <script>
-import Cell from "../../../components/Cell/Cell";
+import Cell from "../../../components/Cell/Cell.vue";
 
 export default {
   name: "lists",
@@ -47,12 +47,21 @@ export default {
     },
     onCancel() {
       console.log("onCancel");
+    },
+    // 获取商品详情
+    getDetail(id) {
+      this.$router.push({
+        name: "info",
+        params: {
+          id: id
+        }
+      });
+      localStorage.setItem("goodId", this.$route.params.id);
     }
   },
   mounted() {
-    console.log(this.$route)
     this.$axios({
-      url: `http://localhost:3000/api/list/${this.$route.params.type}?dataName=${this.$route.params.type}`
+      url: `http://wssd.f3322.net:13140/api/list/${this.$route.params.type}?dataName=${this.$route.params.type}`
     }).then(res => (this.Lists = res.data.list));
   }
 };

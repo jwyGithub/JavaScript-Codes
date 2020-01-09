@@ -30,7 +30,8 @@ a{
   width: 80%;
   padding: 0;
   margin: 0 auto;
-  font: 18px/30px "";
+  font-size: 18px;
+  line-height: 30px;
   text-align: center;
   color: #888;
   background: #309AE6;

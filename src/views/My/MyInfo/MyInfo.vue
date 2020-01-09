@@ -57,7 +57,8 @@ export default {
   margin: 5px 0;
 }
 .myinfo .center dl dt {
-  font: 20px/2 "";
+  font-size:20px;  line-height: 40px;
+
   padding: 10px 20px;
   margin-left: 10px;
   border-bottom: solid 1px #EEE;
@@ -81,7 +82,8 @@ export default {
   width: 50%;
   text-align: center;
   margin: 10px 0;
-  font: 16px/20px ""
+  font-size: 16px;
+  line-height: 20px;
 }
 .myinfo .center dl dd i {
   display: block;

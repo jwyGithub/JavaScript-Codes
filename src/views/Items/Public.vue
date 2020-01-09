@@ -31,7 +31,7 @@ export default {
   margin: 10px 0;
 }
 .public ul li a{
-  font: 16px/2 "";
+  font-size:16px;line-height: 32px;
   background: #eee;
   padding: 10px 20px;
   overflow: hidden;

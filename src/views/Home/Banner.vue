@@ -48,8 +48,9 @@ export default {
 
   },
   beforeMount () {
+    console.log(this)
     axios({
-      url: 'http://localhost:3000/api/banner'
+      url: 'http://wssd.f3322.net:13140/api/banner'
     }).then(
       // eslint-disable-next-line no-return-assign
       res => this.slide = res.data.data
@@ -79,7 +80,7 @@ export default {
   background:rgba(255,255,255,0.4);
 }
 .text-box h2{
-  font: 16px/20px "";
+  font-size: 16px;line-height: 20px;
   font-weight:normal;
   margin: 3px 0;
   overflow:hidden;
@@ -87,7 +88,8 @@ export default {
   text-overflow:ellipsis;
 }
 .text-box p{
-  font: 14px/18px "";
+  font-size: 14px;
+  line-height: 18px;
   height: 18px;
 }
 .overmore {

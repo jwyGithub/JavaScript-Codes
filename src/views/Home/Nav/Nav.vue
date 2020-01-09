@@ -72,7 +72,8 @@ export default {
     margin: 0 auto;
 }
 .nav ul li a p{
-    font: 16px/2 "";
+    font-size:16px;line-height: 32px;
+
     margin-top: 3px;
 }
 .nav ul li:nth-child(1) a:nth-child(1) i {

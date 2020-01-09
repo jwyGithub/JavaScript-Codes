@@ -1,8 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+//全局 baseUrl
+// let config = require('../config/config')
+// window.baseUrl = config.baseUrl.localhost_http
+// Vue.prototype.http://wssd.f3322.net:13140 = config.baseUrl.localhost_http;
+
 // 引入路由
 import router from './plugins/router.js'
+
+// 引入animate.css
+import 'animate.css'
 
 // 引入swiper
 import vueSwiper from 'vue-awesome-swiper'
@@ -22,24 +30,21 @@ import './assets/js/rem'
 import './plugins/axios.js'
 
 // 引入状态管理
-import Vuex from 'vuex'
-import store from './store/store.js'
 
-// 引入mintUI
-import Mint from 'mint-ui'; 
-import 'mint-ui/lib/style.css'
+import store from './plugins/vuex.js'
+
+// 引入懒加载
+import { Lazyload } from 'vant';
+Vue.use(Lazyload);
 
 // 引入vantUI样式
+import Vant from 'vant';
 import 'vant/lib/index.css';
-import { Search } from "vant";
-import { Field } from 'vant';
 
-Vue.use(Field);
 
-Vue.use(Search);
 
-Vue.use(Mint); 
-Vue.use(Vuex)
+Vue.use(Vant);
+
 Vue.use(vueSwiper);
 
 Vue.config.productionTip = false

@@ -21,7 +21,7 @@ export default {
   },
   beforeMount() {
     this.$axios({
-      url: `http://localhost:3000/api/item?dataName=brand`
+      url: `http://wssd.f3322.net:13140/api/item?dataName=brand`
     }).then(res => (this.list = res.data.list));
   }
 };

@@ -4,14 +4,6 @@ import VueRouter from 'vue-router'
 
 // 3. 路由配置
 
-// import Home from '../pages/Home.vue'
-// import Lists from '../components/Lists/Lists.vue'
-// import Item from '../pages/Item.vue'
-import Search from '../pages/Search.vue'
-import Car from '../pages/Car.vue'
-import My from '../pages/My.vue'
-import Login from '../pages/Login.vue'
-import Reg from '../pages/Reg.vue'
 
 // 2. 安装插件包到Vue上,
 Vue.use(VueRouter)
@@ -27,6 +19,11 @@ let routes = [{
   name: "lists",
   path: "/list/:type",
   component: () => import(/* webpackChunkName : "lists" */ '../views/Home/Lists/Lists.vue')
+},
+{
+  name:"info",
+  path:"/goods/info",
+  component : ()=>import(/* webpackChunkName : "lists" */ '../views/GoodsInfo/GoodsInfo.vue')
 },
 {
   // 分类

@@ -1,20 +1,48 @@
 <template>
-  <div class="follow">
-    <!-- <Cell/> -->
+  <div class="car">
+    <div class="hei" style="height:40px"></div>
+    <van-nav-bar title="购物车" :fixed="true" left-text="返回" left-arrow @click-left="onClickLeft" />
+    <Cell :data="data" ref="checkboxGroup"/>
   </div>
 </template>
 
 <script>
-// import Cell from '../components/Cell.vue'
+import Cell from "./CarCell.vue";
 export default {
-  data () { return {} },
-  components: {
-    // Cell
+  name: "car",
+  data() {
+    return {
+      data: ""
+    };
   },
-  mounted () {},
-  updated () {},
-  methods: {}
-}
+  components: {
+    Cell
+  },
+  mounted() {
+    let user = localStorage.getItem("username");
+
+    let localdata = localStorage.getItem("CarGoodInfo");
+    let statedata = this.$store.state.goodsinfo;
+
+    if (statedata.length > 0) {
+      this.data = statedata;
+    } else if (localdata && JSON.parse(localdata).length > 0) {
+      this.data = JSON.parse(localdata);
+    } else {
+      this.$axios({
+        url: `http://wssd.f3322.net:13140/api/carinfo?user=${user}`
+      }).then(res => {
+        this.data = res.data;
+      });
+    }
+  },
+  updated() {},
+  methods: {
+    onClickLeft() {
+      history.go(-1);
+    }
+  }
+};
 </script>
 
 <style scoped>

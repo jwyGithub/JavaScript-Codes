@@ -59,6 +59,7 @@ export default {
 
 .member-info .to-login {
   color: #fff;
-  font: 26px/60px "";
+  font-size: 26px;
+  line-height: 60px;
 }
 </style>

@@ -1,12 +1,16 @@
 body,ol,ul,h1,h2,h3,h4,h5,h6,p,dl,dd,fieldset,legend,input,textarea,select {
     margin:0;padding:0;
 }
+
 body{
-    font:12px  "";
+    font-size:12px;
     word-wrap:break-word;/*单词换行*/
     font-family: 'Heiti, Heiti SC, DroidSans, DroidSansFallback, Arial, "Microsoft YaHei"';
 }
-
+html,body{
+    height:100%;
+    width:100%
+}
 /* 去掉线 */
 a,u,s,del{
     color:#666;

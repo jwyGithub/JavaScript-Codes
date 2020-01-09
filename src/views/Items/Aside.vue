@@ -171,7 +171,8 @@ export default {
   background: #eee;
 }
 .aside ul li a {
-  font: 16px/3 "";
+  font-size: 16px;
+  line-height: 48px;
   word-wrap: break-word;
 }
 .aside ul li a:hover {
