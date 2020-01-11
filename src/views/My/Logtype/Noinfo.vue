@@ -12,7 +12,7 @@
 .nav-text {
     display: flex;
     justify-content: center;
-    margin-top: 70px;
+    margin-top: 30px;
 }
 .nav-text a{
     width: 40%;

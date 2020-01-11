@@ -58,17 +58,17 @@ export default {
       this.user = "请登录";
     } else {
       let username = localStorage.getItem("username");
-      if (!username) {
-        return false;
-      } else {
-        this.$axios({
-          url: `${baseUrl}/api/info?account=${username}`
-        }).then(res => {
-          this.show = "Haveinfo";
-          this.user = res.data.nickname;
-          this.icon = `${baseUrl}${res.data.icon}`;
-        });
-      }
+      // if (!username) {
+      //   return false;
+      // } else {
+      this.$axios({
+        url: `${baseUrl}/api/info?account=${username}`
+      }).then(res => {
+        this.show = "Haveinfo";
+        this.user = res.data.nickname;
+        this.icon = `${baseUrl}${res.data.icon}`;
+      });
+      // }
     }
   },
   updated() {},

@@ -21,7 +21,7 @@ export default {
   border: 1px solid #000;
   border-radius: 10px;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .logout input{
   cursor: pointer;

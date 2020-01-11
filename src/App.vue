@@ -4,7 +4,7 @@
     <transition>
       <router-view></router-view>
     </transition>
-    <div class="footer"></div>
+    <!-- <div class="footer"></div> -->
     <Footer v-show="isAddcar" />
   </div>
 </template>
@@ -39,9 +39,6 @@ export default {
 #app {
   height: 100%;
   overflow-x: hidden;
-}
-.footer {
-  height: 60px;
 }
 .v-enter {
   opacity: 0;

@@ -3,7 +3,7 @@ import App from './App.vue'
 
 //全局 baseUrl
 let config = require('../config/config')
-window.baseUrl = config.baseUrl.localhost_http
+window.baseUrl = config.baseUrl.localhost
 
 // 引入路由
 import router from './plugins/router.js'
