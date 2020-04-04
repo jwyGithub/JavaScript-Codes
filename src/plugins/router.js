@@ -59,7 +59,7 @@ let routes = [{
 {
   name: 'reg',
   path: '/reg',
-  component: () => import(/* webpackChunkName : "reg" */ '../views/Reg/Reg.vue')
+  component: () => import(/* webpackChunkName : "reg" */ '../views/Reg/reg.vue')
 },
 // 默认页面
 {
