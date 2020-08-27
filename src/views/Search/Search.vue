@@ -14,18 +14,25 @@
     <div class="keywords">
       <h3>热门搜索</h3>
       <div class="keys">
-        <a href="javascript:;" v-for="(item,index) in hotlist" :key="index">{{item}}</a>
+        <a href="javascript:;" v-for="(item, index) in hotlist" :key="index">{{
+          item
+        }}</a>
       </div>
     </div>
     <div class="history">
       <h3>历史记录</h3>
       <div class="keys">
-        <a href="javascript:;" v-for="(item,index) in historylist" :key="index">{{item.key}}</a>
+        <a
+          href="javascript:;"
+          v-for="(item, index) in historylist"
+          :key="index"
+          >{{ item.key }}</a
+        >
       </div>
     </div>
     <a href="javascript:;" class="clear">清空历史</a>
   </div>
-</template> 
+</template>
 
 <script>
 export default {
@@ -34,16 +41,16 @@ export default {
     return {
       value: "",
       hotlist: "",
-      historylist: ""
+      historylist: "",
     };
   },
   beforeMount() {
     this.$axios({
-      url: `${baseUrl}/api/keywords`
-    }).then(res => (this.hotlist = res.data.list));
+      url: `${baseUrl}/api/keywords`,
+    }).then((res) => (this.hotlist = res.data.list));
     this.$axios({
-      url: `${baseUrl}/api/history`
-    }).then(res => (this.historylist = res.data));
+      url: `${baseUrl}/api/history`,
+    }).then((res) => (this.historylist = res.data));
   },
   methods: {
     onSearch() {
@@ -51,8 +58,8 @@ export default {
     },
     onCancel() {
       console.log("onCancel");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -66,7 +73,8 @@ export default {
   margin-bottom: 20px;
 }
 h3 {
-  font-size:20px;  line-height: 40px;
+  font-size: 20px;
+  line-height: 40px;
 
   padding-left: 20px;
 }

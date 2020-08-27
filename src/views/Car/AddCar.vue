@@ -10,7 +10,9 @@
       </li>
       <li>
         <i>
-          <em v-show="this.$store.state.count > 0 ? true : false">{{this.$store.state.count}}</em>
+          <em v-show="this.$store.state.count > 0 ? true : false">{{
+            this.$store.state.count
+          }}</em>
         </i>
         <span>购物车</span>
       </li>
@@ -23,11 +25,11 @@ export default {
   data() {
     return {};
   },
-  methods: {}
+  methods: {},
 };
 </script>
 
-<style  scoped>
+<style scoped>
 .addcar {
   position: fixed;
   bottom: 0;
@@ -48,7 +50,8 @@ export default {
 .add li:nth-child(2) {
   flex: 3;
   text-align: center;
-  font-size: 20px;line-height: 50px;
+  font-size: 20px;
+  line-height: 50px;
   background: #fb6e52;
 }
 .add li:nth-child(2) a {

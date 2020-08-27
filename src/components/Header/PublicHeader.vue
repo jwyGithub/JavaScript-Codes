@@ -2,7 +2,7 @@
   <div class="public-header">
     <section>
       <a href="javascript:;" @click="back"></a>
-      <h3>{{headerTitle}}</h3>
+      <h3>{{ headerTitle }}</h3>
     </section>
   </div>
 </template>
@@ -13,14 +13,14 @@ export default {
   props: {
     headerTitle: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   methods: {
     back() {
       history.go(-1);
-    }
-  }
+    },
+  },
 };
 </script>
 

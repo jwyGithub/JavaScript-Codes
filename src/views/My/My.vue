@@ -2,10 +2,10 @@
   <div class="my">
     <div class="member-top">
       <div class="member-info clearfix">
-        <a href="javascript:;" class="default-avatar" style="display:block;">
+        <a href="javascript:;" class="default-avatar" style="display: block;">
           <img :src="icon" alt class="icon" />
         </a>
-        <a href="javascript:;" class="to-login">{{user}}</a>
+        <a href="javascript:;" class="to-login">{{ user }}</a>
       </div>
     </div>
     <MyInfo />
@@ -44,13 +44,13 @@ export default {
       isShow: true,
       user: "",
       icon: "",
-      show: "Noinfo"
+      show: "Noinfo",
     };
   },
   components: {
     MyInfo,
     Noinfo,
-    Haveinfo
+    Haveinfo,
   },
   mounted() {
     let token = localStorage.getItem("token");
@@ -62,8 +62,8 @@ export default {
       //   return false;
       // } else {
       this.$axios({
-        url: `${baseUrl}/api/info?account=${username}`
-      }).then(res => {
+        url: `${baseUrl}/api/info?account=${username}`,
+      }).then((res) => {
         this.show = "Haveinfo";
         this.user = res.data.nickname;
         this.icon = `${baseUrl}${res.data.icon}`;
@@ -72,7 +72,7 @@ export default {
     }
   },
   updated() {},
-  methods: {}
+  methods: {},
 };
 </script>
 

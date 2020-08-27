@@ -1,4 +1,2 @@
-let getters = {
-
-};
+let getters = {};
 export default getters;

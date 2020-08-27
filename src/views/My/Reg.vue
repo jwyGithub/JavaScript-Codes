@@ -5,14 +5,15 @@
 </template>
 
 <script>
-  export default {
-    data(){return {}},
-    components:{},
-    mounted(){},
-    updated(){},
-    methods:{}
-  }
+export default {
+  data() {
+    return {};
+  },
+  components: {},
+  mounted() {},
+  updated() {},
+  methods: {},
+};
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

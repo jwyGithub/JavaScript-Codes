@@ -1,10 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 let actions = {
-  addCarInfo: ({
-    commit,
-    state
-  }, payload) => {
+  addCarInfo: ({ commit, state }, payload) => {
     let arr = [...state.goodsinfo];
     let find = false;
 
@@ -14,7 +11,7 @@ let actions = {
         item.buyCount = payload.buyCount;
         item.startDate = payload.startDate;
         item.orderYearCount = payload.orderYearCount;
-        item.img = payload.img
+        item.img = payload.img;
         find = true;
       }
     });
@@ -23,7 +20,7 @@ let actions = {
       // console.log(payload)
       arr.push(payload);
     }
-    commit('ADD_ITEM', arr)
+    commit("ADD_ITEM", arr);
 
     //计算购物车的总数量
     state.count = state.goodsinfo.reduce((prev, cur) => {
@@ -31,21 +28,19 @@ let actions = {
     }, 0);
 
     // 把数据存localstore
-    localStorage.setItem("CarGoodInfo", JSON.stringify(arr))
+    localStorage.setItem("CarGoodInfo", JSON.stringify(arr));
 
     // 把数据存数据库
-
 
     axios({
       url: `${baseUrl}/api/carinfo`,
       method: "post",
       data: {
-        carinfo: arr
-      }
-    }).then(res => {
-      console.log(res.data)
+        carinfo: arr,
+      },
+    }).then((res) => {
+      console.log(res.data);
     });
-  }
-
+  },
 };
 export default actions;

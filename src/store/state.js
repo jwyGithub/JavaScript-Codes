@@ -1,7 +1,7 @@
 let state = {
   goodsinfo: [],
   count: 0,
-  lodingStatus: false
-}
+  lodingStatus: false,
+};
 
 export default state;

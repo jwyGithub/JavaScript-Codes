@@ -35,12 +35,12 @@ export default {
     return {
       list: "",
       isShow: "brand",
-      value: ""
+      value: "",
     };
   },
   components: {
     Article,
-    Aside
+    Aside,
   },
   mounted() {},
   updated() {},
@@ -48,16 +48,16 @@ export default {
     getList(type) {
       this.isShow = type.isShow;
       this.$axios({
-        url: `${baseUrl}/api/item?dataName=${type.dataName}`
-      }).then(res => this.list =  res.data.list);
+        url: `${baseUrl}/api/item?dataName=${type.dataName}`,
+      }).then((res) => (this.list = res.data.list));
     },
     onSearch() {
       console.log("onSearch");
     },
     onCancel() {
       console.log("onCancel");
-    }
-  }
+    },
+  },
 };
 </script>
 

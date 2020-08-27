@@ -3,7 +3,7 @@
     <van-checkbox-group v-model="result">
       <van-cell-group>
         <van-cell
-          v-for="(item,index) of data"
+          v-for="(item, index) of data"
           :key="index"
           class="box clearfix"
           @click="toggle(index)"
@@ -12,18 +12,18 @@
             <van-checkbox :name="item.id" ref="checkboxes" slot="right-icon" />
             <img :src="item.img" />
             <div class="right">
-              <h3>{{item.name}}</h3>
+              <h3>{{ item.name }}</h3>
               <p>
                 <span>年数：</span>
-                {{item.orderYearCount}}
+                {{ item.orderYearCount }}
               </p>
               <p>
                 <span>起刊日期：</span>
-                {{item.startDate}}
+                {{ item.startDate }}
               </p>
               <p class="price">
                 <span>价格：</span>
-                ¥{{item.price}}
+                ¥{{ item.price }}
               </p>
               <p>
                 <van-stepper
@@ -38,7 +38,7 @@
           </div>
           <p class="subtotal">
             <span>小计:</span>
-            ¥ {{item.buyCount * item.price}}元
+            ¥ {{ item.buyCount * item.price }}元
           </p>
         </van-cell>
       </van-cell-group>
@@ -50,14 +50,14 @@
 export default {
   data() {
     return {
-      result: []
+      result: [],
     };
   },
   props: {
     data: {
-      type: [String, Array,Object],
-      default: ""
-    }
+      type: [String, Array, Object],
+      default: "",
+    },
   },
   components: {},
   mounted() {},
@@ -65,12 +65,10 @@ export default {
   methods: {
     toggle(index) {
       this.$refs.checkboxes[index].toggle();
-    }
-  }
+    },
+  },
 };
 </script>
-
-
 
 <style scoped>
 .carcell {

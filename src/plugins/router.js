@@ -1,77 +1,88 @@
-import Vue from 'vue'
+import Vue from "vue";
 
-import VueRouter from 'vue-router'
+import VueRouter from "vue-router";
 
 // 3. 路由配置
 
-
 // 2. 安装插件包到Vue上,
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
-let routes = [{
-  // 首页
-  name: 'home',
-  path: '/home',
-  component: () => import(/* webpackChunkName : "home" */ '../views/Home/Home.vue')
-},
-{
-  // 列表
-  name: "lists",
-  path: "/list/:type",
-  component: () => import(/* webpackChunkName : "lists" */ '../views/Home/Lists/Lists.vue')
-},
-{
-  name: "info",
-  path: "/goods/info",
-  component: () => import(/* webpackChunkName : "lists" */ '../views/GoodsInfo/GoodsInfo.vue')
-},
-{
-  // 分类
-  name: 'item',
-  path: '/item',
-  component: () => import(/* webpackChunkName : "item" */ '../views/Items/Item.vue')
-},
-// 搜索
-{
-  name: 'search',
-  path: '/search',
-  component: () => import(/* webpackChunkName : "search" */ '../views/Search/Search.vue')
-},
-// 购物车
-{
-  name: 'car',
-  path: '/car',
-  component: () => import(/* webpackChunkName : "search" */ '../views/Car/Car.vue')
-},
-// 我的
-{
-  name: 'my',
-  path: '/my',
-  component: () => import(/* webpackChunkName : "my" */ '../views/My/My.vue')
-},
-// 登陆
-{
-  name: 'login',
-  path: '/login',
-  component: () => import(/* webpackChunkName : "login" */ '../views/Login/Login.vue')
-},
-// 注册
-{
-  name: 'reg',
-  path: '/reg',
-  component: () => import(/* webpackChunkName : "reg" */ '../views/Reg/reg.vue')
-},
-// 默认页面
-{
-  path: '/',
-  redirect: '/home'
-}
-]
+let routes = [
+  {
+    // 首页
+    name: "home",
+    path: "/home",
+    component: () =>
+      import(/* webpackChunkName : "home" */ "../views/Home/Home.vue"),
+  },
+  {
+    // 列表
+    name: "lists",
+    path: "/list/:type",
+    component: () =>
+      import(/* webpackChunkName : "lists" */ "../views/Home/Lists/Lists.vue"),
+  },
+  {
+    name: "info",
+    path: "/goods/info",
+    component: () =>
+      import(
+        /* webpackChunkName : "lists" */ "../views/GoodsInfo/GoodsInfo.vue"
+      ),
+  },
+  {
+    // 分类
+    name: "item",
+    path: "/item",
+    component: () =>
+      import(/* webpackChunkName : "item" */ "../views/Items/Item.vue"),
+  },
+  // 搜索
+  {
+    name: "search",
+    path: "/search",
+    component: () =>
+      import(/* webpackChunkName : "search" */ "../views/Search/Search.vue"),
+  },
+  // 购物车
+  {
+    name: "car",
+    path: "/car",
+    component: () =>
+      import(/* webpackChunkName : "search" */ "../views/Car/Car.vue"),
+  },
+  // 我的
+  {
+    name: "my",
+    path: "/my",
+    component: () => import(/* webpackChunkName : "my" */ "../views/My/My.vue"),
+  },
+  // 登陆
+  {
+    name: "login",
+    path: "/login",
+    component: () =>
+      import(/* webpackChunkName : "login" */ "../views/Login/Login.vue"),
+  },
+  // 注册
+  {
+    name: "reg",
+    path: "/reg",
+    component: () =>
+      import(/* webpackChunkName : "reg" */ "../views/Reg/reg.vue"),
+  },
+  // 默认页面
+  {
+    path: "/",
+    redirect: "/home",
+  },
+];
 
-let router = new VueRouter({ // 插件路由对象
+let router = new VueRouter({
+  // 插件路由对象
   routes,
-  mode: 'history'
-})
+  mode: "history",
+});
 
 // 全局守卫
 /* router.beforeEach((to,from,next)=>{
@@ -96,4 +107,4 @@ let router = new VueRouter({ // 插件路由对象
   //全局后置守卫业务
 }) */
 
-export default router
+export default router;

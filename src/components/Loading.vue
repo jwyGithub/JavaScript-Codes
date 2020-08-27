@@ -23,11 +23,11 @@ export default {
   components: {},
   mounted() {},
   updated() {},
-  methods: {}
+  methods: {},
 };
 </script>
 
- <style scoped>
+<style scoped>
 .ciclebox {
   height: 80px;
   width: 80px;

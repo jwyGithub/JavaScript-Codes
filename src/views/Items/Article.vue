@@ -4,8 +4,6 @@
   </div>
 </template>
 
-
-
 <script>
 import Brand from "./Brand/Brand";
 import Public from "./Public";
@@ -14,25 +12,24 @@ export default {
   name: "j-article",
   data() {
     return {
-      show: "Public"
+      show: "Public",
     };
   },
   props: {
     data: {
       type: [String, Array],
-      default: ""
+      default: "",
     },
     isShow: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   components: {
     Brand,
-    Public
-  }
+    Public,
+  },
 };
 </script>
 
-<style  scoped>
-</style>
+<style scoped></style>

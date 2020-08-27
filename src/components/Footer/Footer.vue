@@ -30,13 +30,13 @@ export default {
   name: "public-footer",
   data() {
     return {
-      active: 0
+      active: 0,
     };
   },
   components: {},
   mounted() {},
   updated() {},
-  methods: {}
+  methods: {},
 };
 </script>
 

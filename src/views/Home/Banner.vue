@@ -2,11 +2,15 @@
   <div class="banner">
     <ul class="clearfix">
       <swiper :options="swiperOption">
-        <swiper-slide class="swiper-slide" v-for="(item) in slide" :key="item._id">
+        <swiper-slide
+          class="swiper-slide"
+          v-for="item in slide"
+          :key="item._id"
+        >
           <img :src="item.imgurl" alt />
           <div class="text-box">
-            <h2>{{item.sub_title}}</h2>
-            <p class="overmore">{{item.title}}</p>
+            <h2>{{ item.sub_title }}</h2>
+            <p class="overmore">{{ item.title }}</p>
           </div>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -26,31 +30,31 @@ export default {
         // 显示分页
         pagination: {
           el: ".swiper-pagination",
-          clickable: true // 允许分页点击跳转
+          clickable: true, // 允许分页点击跳转
         },
         // 自动轮播
         autoplay: {
           delay: 2000,
           stopOnLastSlide: false,
-          disableOnInteraction: false
+          disableOnInteraction: false,
         },
         // 开启循环模式
         loop: true,
         // 开启鼠标滚轮控制Swiper切换
         mousewheel: true,
         initialSlide: 0,
-        speed: 1000
-      }
+        speed: 1000,
+      },
     };
   },
   components: {},
   beforeMount() {
     axios({
-      url: `${baseUrl}/api/banner`
-    }).then(res => (this.slide = res.data.data));
+      url: `${baseUrl}/api/banner`,
+    }).then((res) => (this.slide = res.data.data));
   },
   updated() {},
-  methods: {}
+  methods: {},
 };
 </script>
 

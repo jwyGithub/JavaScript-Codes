@@ -1,13 +1,17 @@
 <template>
   <div class="cell">
-    <li v-for="item in data" :key="item.goods_id" @click="getDetail(item.goods_id)" >
+    <li
+      v-for="item in data"
+      :key="item.goods_id"
+      @click="getDetail(item.goods_id)"
+    >
       <a href="javascript:;">
         <img :src="item.goods_image_url" alt />
         <div class="con">
-          <h3 class="overonly">{{item.goods_name}}</h3>
-          <h6 class="overmore">{{item.goods_jingle}}</h6>
-          <span>¥ {{item.goods_price}}</span>
-          <p>{{item.store_name}}</p>
+          <h3 class="overonly">{{ item.goods_name }}</h3>
+          <h6 class="overmore">{{ item.goods_jingle }}</h6>
+          <span>¥ {{ item.goods_price }}</span>
+          <p>{{ item.store_name }}</p>
         </div>
       </a>
     </li>
@@ -22,18 +26,18 @@ export default {
   props: {
     data: {
       type: [Object, Array, String],
-      default: function() {
+      default: function () {
         return {};
-      }
+      },
     },
     index: {
       type: Number,
-      default: null
+      default: null,
     },
     isJump: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   components: {},
   beforeMount() {},
@@ -41,13 +45,13 @@ export default {
   updated() {},
   methods: {
     getDetail(id) {
-      this.$emit("getDetail",id)
-    }
-  }
+      this.$emit("getDetail", id);
+    },
+  },
 };
 </script>
 
-<style >
+<style>
 .cell li {
   margin: 10px 0;
 }

@@ -4,7 +4,12 @@
       <!-- 账号密码输入区域 -->
       <ul>
         <li>
-          <input type="text" class="account" placeholder="手机/邮箱" v-model="acc" />
+          <input
+            type="text"
+            class="account"
+            placeholder="手机/邮箱"
+            v-model="acc"
+          />
         </li>
         <li>
           <input type="password" class="pwd" placeholder="密码" v-model="pwd" />
@@ -35,11 +40,11 @@ export default {
   data() {
     return {
       acc: "",
-      pwd: ""
+      pwd: "",
     };
   },
   components: {
-    Button
+    Button,
   },
   methods: {
     //  登陆
@@ -54,12 +59,12 @@ export default {
           method: "post",
           data: {
             account: this.acc,
-            password: this.pwd
-          }
-        }).then(res => {
+            password: this.pwd,
+          },
+        }).then((res) => {
           if (res.data.code == 200 && res.data.msg == "登陆成功") {
             localStorage.setItem("token", res.data.token);
-            localStorage.setItem("username",this.acc)
+            localStorage.setItem("username", this.acc);
             this.$router.push({ name: "my" });
           } else {
             Toast(res.data.msg);
@@ -68,8 +73,8 @@ export default {
       } else {
         Toast("请输入正确的邮箱或者手机号");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

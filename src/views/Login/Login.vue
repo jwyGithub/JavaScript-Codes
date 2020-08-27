@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Header from "../../components/Header/PublicHeader"
+import Header from "../../components/Header/PublicHeader";
 import LoginLogo from "./LoginLogo";
 import LoginBody from "./LoginBody";
 
@@ -16,9 +16,9 @@ export default {
   components: {
     Header,
     LoginLogo,
-    LoginBody
+    LoginBody,
   },
-  mounted() {}
+  mounted() {},
 };
 </script>
 

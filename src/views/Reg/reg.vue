@@ -22,14 +22,14 @@ export default {
       account: "",
       password: "",
       sms: "",
-      icon: ""
+      icon: "",
     };
   },
   components: {
     Header,
     Logo,
-    RegBody
-  }
+    RegBody,
+  },
 };
 </script>
 

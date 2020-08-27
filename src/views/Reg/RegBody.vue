@@ -28,11 +28,11 @@ export default {
       nickname: "",
       account: "",
       pwd: "",
-      code: ""
+      code: "",
     };
   },
   components: {
-    Button
+    Button,
   },
   methods: {
     reg() {
@@ -51,8 +51,8 @@ export default {
         this.$axios({
           url: `${baseUrl}/api/reg`,
           method: "post",
-          data: formData
-        }).then(res => {
+          data: formData,
+        }).then((res) => {
           if (res.data.code == 200 && res.data.msg == "注册成功") {
             Toast(res.data.msg);
             this.$router.push({ name: "login" });
@@ -63,8 +63,8 @@ export default {
       } else {
         Toast("请输入正确的手机号或邮箱");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -1,44 +1,40 @@
 <template>
   <div class="home">
-    <Banner/>
-    <Nav/>
-    <img src="" alt="" class="lq">
-    <List :data='list'/>
+    <Banner />
+    <Nav />
+    <img src="" alt="" class="lq" />
+    <List :data="list" />
   </div>
 </template>
 
 <script>
-import Banner from './Banner.vue'
-import Nav from './Nav/Nav.vue'
-import List from '../Home/List.vue'
+import Banner from "./Banner.vue";
+import Nav from "./Nav/Nav.vue";
+import List from "../Home/List.vue";
 export default {
-  name:"home",
-  data () {
+  name: "home",
+  data() {
     return {
-      list: []
-    }
+      list: [],
+    };
   },
   components: {
     Banner,
     Nav,
-    List
+    List,
   },
-  mounted () {
+  mounted() {
     this.$axios({
-      url: `${baseUrl}/api/home`
-    }).then(
-      res => this.list = res.data.data
-    )
+      url: `${baseUrl}/api/home`,
+    }).then((res) => (this.list = res.data.data));
   },
-  updated () {},
-  methods: {
-
-  }
-}
+  updated() {},
+  methods: {},
+};
 </script>
 
 <style scoped>
-.lq{
+.lq {
   width: 100%;
 }
 </style>

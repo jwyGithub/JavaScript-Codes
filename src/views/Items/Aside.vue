@@ -60,7 +60,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   name: "j-aside",
@@ -71,88 +70,88 @@ export default {
     business() {
       this.$emit("getList", {
         dataName: "business",
-        isShow: "public"
+        isShow: "public",
       });
     },
     brand() {
       this.$emit("getList", {
         dataName: "brand",
-        isShow: "brand"
+        isShow: "brand",
       });
     },
     education() {
       this.$emit("getList", {
         dataName: "education",
-        isShow: "public"
+        isShow: "public",
       });
     },
     build() {
       this.$emit("getList", {
         dataName: "build",
-        isShow: "public"
+        isShow: "public",
       });
     },
     fashion() {
       this.$emit("getList", {
         dataName: "fashion",
-        isShow: "public"
+        isShow: "public",
       });
     },
     art() {
       this.$emit("getList", {
         dataName: "art",
-        isShow: "public"
+        isShow: "public",
       });
     },
     travel() {
       this.$emit("getList", {
         dataName: "travel",
-        isShow: "public"
+        isShow: "public",
       });
     },
     current() {
       this.$emit("getList", {
         dataName: "current",
-        isShow: "public"
+        isShow: "public",
       });
     },
     car() {
       this.$emit("getList", {
         dataName: "car",
-        isShow: "public"
+        isShow: "public",
       });
     },
     medical() {
       this.$emit("getList", {
         dataName: "food",
-        isShow: "public"
+        isShow: "public",
       });
     },
     technology() {
       this.$emit("getList", {
         dataName: "technology",
-        isShow: "public"
+        isShow: "public",
       });
     },
     moive() {
       this.$emit("getList", {
         dataName: "movie",
-        isShow: "public"
+        isShow: "public",
       });
     },
     language() {
       this.$emit("getList", {
         dataName: "languages",
-        isShow: "public"
+        isShow: "public",
       });
     },
     report() {
       this.$emit("getList", {
         dataName: "report",
-        isShow: "public"
+        isShow: "public",
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

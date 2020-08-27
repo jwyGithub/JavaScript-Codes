@@ -12,9 +12,9 @@ export default {
   props: {
     buttonTitle: {
       type: String,
-      default: "登陆"
-    }
-  }
+      default: "登陆",
+    },
+  },
 };
 </script>
 

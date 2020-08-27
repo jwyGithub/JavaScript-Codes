@@ -17,12 +17,12 @@ export default {
   name: "app",
   data() {
     return {
-      isAddcar: true
+      isAddcar: true,
     };
   },
   components: {
     Footer,
-    Loading
+    Loading,
   },
   watch: {
     $route() {
@@ -31,8 +31,8 @@ export default {
       } else {
         this.isAddcar = true;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
