@@ -9,15 +9,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/jwyGithub/Javascript-Codes.git"
+        "url": "git+https://github.com/jwyGithub/JavaScript-Codes.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/jwyGithub/Javascript-Codes/issues"
+        "url": "https://github.com/jwyGithub/JavaScript-Codes/issues"
     },
-    "homepage": "https://github.com/jwyGithub/Javascript-Codes#readme",
+    "homepage": "https://github.com/jwyGithub/JavaScript-Codes#readme",
     "devDependencies": {
         "@types/node": "^17.0.25",
         "css-loader": "^6.7.1",
