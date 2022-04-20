@@ -18,7 +18,7 @@
     "bugs": {
         "url": "https://github.com/jwyGithub/JavaScript-Codes/issues"
     },
-    "homepage": "https://github.com/jwyGithub/JavaScript-Codes#readme",
+    "homepage": "https://jwygithub.github.io/JavaScript-Codes/",
     "devDependencies": {
         "@types/node": "^17.0.25",
         "css-loader": "^6.7.1",
