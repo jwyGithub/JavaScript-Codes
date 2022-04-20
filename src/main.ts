@@ -4,7 +4,7 @@ import './scss/main.scss';
 
 import { createElement } from './utils/index';
 
-import '../public/code';
+import '../public/code.data';
 
 /**
  * @description 通知
@@ -67,7 +67,7 @@ function createBlock(code: string, i: number = 0) {
  * @description 获取源码
  */
 function getSourceCode() {
-    fetch('code.ts')
+    fetch('data/code.ts')
         .then(res => res.text())
         .then(code => {
             code.split(`String.prototype.split;`).forEach(createBlock);

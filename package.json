@@ -5,8 +5,9 @@
     "description": "",
     "main": "main.ts",
     "scripts": {
-        "dev": "webpack serve --config build/webpack.config.dev.js --mode development --progress",
-        "build": "webpack --config build/webpack.config.dev.js --mode production"
+        "dev": "webpack serve --config build/webpack.config.js --env NODE_ENV=development --progress --mode development",
+        "build:dev": "webpack --config build/webpack.config.js --env NODE_ENV=development --progress --mode development",
+        "build:prod": "webpack --config build/webpack.config.js --env NODE_ENV=production --progress --mode production"
     },
     "repository": {
         "type": "git",
@@ -20,12 +21,20 @@
     },
     "homepage": "https://jwygithub.github.io/JavaScript-Codes/",
     "devDependencies": {
+        "@babel/core": "^7.17.9",
+        "@babel/plugin-transform-runtime": "^7.17.0",
+        "@babel/preset-env": "^7.16.11",
+        "@babel/preset-typescript": "^7.16.7",
+        "@babel/runtime-corejs3": "^7.17.9",
         "@types/node": "^17.0.25",
+        "babel-loader": "^8.2.5",
+        "core-js": "^3.22.1",
         "css-loader": "^6.7.1",
         "html-webpack-plugin": "^5.5.0",
         "mini-css-extract-plugin": "^2.6.0",
         "postcss": "^8.4.12",
         "postcss-loader": "^6.2.1",
+        "process": "^0.11.10",
         "sass": "^1.50.1",
         "sass-loader": "^12.6.0",
         "style-loader": "^3.3.1",
@@ -39,4 +48,3 @@
         "highlight.js": "^11.5.1"
     }
 }
-
