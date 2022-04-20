@@ -1,31 +1,44 @@
-name: Deploy page # action的名字，会显示在github Actions的All workflows下面
-
-on: # 触发条件
-    push: # push代码时
-        branches: # 触发push的分支
-            - master # 可以修改成你自己想构建的分支
-
+# 工作流名称，不设置的话默认取配置文件名
+name: Build and Deploy
+# 指定触发 workflow 的条件
+# 指定触发事件时，可以限定分支或标签
+# 当前是 只有 branches 分支上触发 push 事件时才执行工作流任务
+on:
+    push:
+        branches:
+            - master
+# 工作流执行的一个或多个任务
 jobs:
+    # 任务名称
     build-and-deploy:
-        runs-on: ubuntu-latest # 跑脚本的机器
-        steps: # 步骤
-            - name: Checkout 🛎️ # 第一步 拉代码
-              uses: actions/checkout@v2 # 拉代码的插件
+        # 任务运行的容器类型（虚拟机环境）
+        runs-on: ubuntu-latest
+        # 任务执行的步骤
+        steps:
+            # 步骤名称
+            - name: Checkout 🛎️ # 拉取代码
+              # 使用的操作 actions，可以使用公共仓库，本地仓库，别人的仓库的action
+              uses: actions/checkout@v2 # 将代码拷贝到虚机中
+            # 设置 nodejs 版本
+            - name: SetNodeVersion
+              uses: actions/setup-node@v2
               with:
-                  persist-credentials: false
-
-            - name: Install and Build 🔧 # 第二步，装node包，构建
+                  node-version: '14'
+            # nodejs 版本检查
+            - name: NodeCheck
+              run: node -v
+            - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
               run: |
                   npm install
-                  npm run build  # 你自己项目的构建命令
-                  cp build/index.html build/404.html # 防止404跳转github的404
-
-            - name: Deploy 🚀 # 部署
-              id: 'deploy'
-              uses: JamesIves/github-pages-deploy-action@releases/v3 # 部署到github的静态页，会将打包后的文件推送至下面填写的分支，可以直接新开一个分支用来放打包后的文件
+                  npm run build
+              # 构建发布 Github pages
+            - name: Deploy 🚀
+              # 使用github-pages-deploy-action: https://github.com/JamesIves/github-pages-deploy-action/tree/master
+              uses: JamesIves/github-pages-deploy-action@v4.2.2
               with:
-                  GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-                  BRANCH: static-page # 编译文件分支
-                  FOLDER: build # 编译文件的文件夹
+                  # 存储库中要部署的文件夹。
+                  # 该步骤会将项目中 FOLDER 指定文件夹下的文件推送到 BRANCH 分支，作为Github Pages 部署的内容。
+                  branch: gh-pages # The branch the action should deploy to.
+                  folder: dist # The folder the action should deploy.
 
 
