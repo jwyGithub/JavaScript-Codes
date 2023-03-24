@@ -1,50 +1,46 @@
 {
-    "name": "javascript-codes",
-    "version": "1.0.1",
-    "private": true,
-    "description": "",
-    "main": "main.ts",
+    "name": "vue-cli-plugin-inject-style",
+    "version": "0.0.1",
+    "description": "automatically inject style files based on the style path",
+    "author": "jiangweiye <jiangweiye@outlook.com> (https://github.com/jwyGithub)",
+    "license": "MIT",
+    "homepage": "https://github.com/jwyGithub/vue-cli-plugin-inject-style",
+    "keywords": [
+        "vue",
+        "vue-cli",
+        "vue-cli-plugin",
+        "vue-cli-plugin-style",
+        "style",
+        "less",
+        "scss",
+        "sass"
+    ],
+    "exports": {
+        ".": {
+            "require": "./dist/index.cjs.js"
+        }
+    },
+    "main": "./dist/index.cjs.js",
+    "types": "./dist/types/index.d.ts",
+    "files": [
+        "dist"
+    ],
     "scripts": {
-        "dev": "webpack serve --config build/webpack.config.js --env NODE_ENV=development --progress --mode development",
-        "build:dev": "webpack --config build/webpack.config.js --env NODE_ENV=development --progress --mode development",
-        "build:prod": "webpack --config build/webpack.config.js --env NODE_ENV=production --progress --mode production"
+        "build": "rollup -c rollup.config.ts --configPlugin rollup-plugin-typescript2",
+        "release": "npm run build && bumpp package.json --commit --push --tag && npm publish --access=public",
+        "lint": "eslint ."
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/jwyGithub/JavaScript-Codes.git"
+    "peerDependencies": {
+        "@vue/cli-service": "*"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/jwyGithub/JavaScript-Codes/issues"
-    },
-    "homepage": "https://jwygithub.github.io/JavaScript-Codes/",
     "devDependencies": {
-        "@babel/core": "^7.17.9",
-        "@babel/plugin-transform-runtime": "^7.17.0",
-        "@babel/preset-env": "^7.16.11",
-        "@babel/preset-typescript": "^7.16.7",
-        "@babel/runtime-corejs3": "^7.17.9",
-        "@types/node": "^17.0.25",
-        "babel-loader": "^8.2.5",
-        "core-js": "^3.22.1",
-        "css-loader": "^6.7.1",
-        "html-webpack-plugin": "^5.5.0",
-        "mini-css-extract-plugin": "^2.6.0",
-        "postcss": "^8.4.12",
-        "postcss-loader": "^6.2.1",
-        "process": "^0.11.10",
-        "sass": "^1.50.1",
-        "sass-loader": "^12.6.0",
-        "style-loader": "^3.3.1",
-        "ts-loader": "^9.2.8",
-        "typescript": "^4.6.3",
-        "webpack": "^5.72.0",
-        "webpack-cli": "^4.9.2",
-        "webpack-dev-server": "^4.8.1"
-    },
-    "dependencies": {
-        "highlight.js": "^11.5.1"
+        "@jiangweiye/eslint-config": "^0.0.27",
+        "@types/node": "^18.15.3",
+        "@vue/cli-service": "~5.0.8",
+        "bumpp": "^9.0.0",
+        "eslint": "^8.36.0",
+        "rollup": "^3.19.1",
+        "rollup-plugin-typescript2": "^0.34.1",
+        "typescript": "^5.0.2"
     }
 }
