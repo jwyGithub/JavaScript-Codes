@@ -1,21 +1,15 @@
 import { existsSync, lstatSync, readdirSync } from 'fs';
 import { join } from 'path';
+import type { suffix } from './config';
 
-export type ObjectKey<T = {}> = T extends { [key: string]: any } ? T : { [key: string]: any };
+export interface ObjectKey {
+    [key: string]: any;
+}
 
-export type GetDirs = Array<{
-    dirName: string;
-    dirPath: string;
+export type GetFiles = Array<{
+    fileName: string;
+    filePath: string;
 }>;
-
-/**
- * @description 是否是文件夹
- * @param path
- * @returns
- */
-export const isDir = (path: string): boolean => {
-    return lstatSync(path).isDirectory();
-};
 
 /**
  * @description 是否是文件
@@ -40,11 +34,11 @@ export const hasFile = (path: string) => {
  * @param path
  * @returns
  */
-export const getFiles = (path: string): GetDirs => {
+export const getFiles = (path: string): GetFiles => {
     const dirs = readdirSync(path);
-    return dirs.reduce<GetDirs>((result, name) => {
+    return dirs.reduce<GetFiles>((result, name) => {
         const fullPath = join(path, name);
-        isFile(fullPath) && result.push({ dirName: name, dirPath: fullPath });
+        isFile(fullPath) && result.push({ fileName: name, filePath: fullPath });
         return result;
     }, []);
 };
@@ -74,20 +68,30 @@ export const hasKey = (data: object, key: string): boolean => {
  * @param target object
  * @returns object
  */
-export const mergeConfig = <T>(source: ObjectKey<T>, target: ObjectKey<T>): ObjectKey<T> => {
-    if (isObject(target)) {
-        for (const key in target) {
-            if (!hasKey(source, key)) {
-                source[key] = target[key];
-                if (isObject(source[key])) {
-                    mergeConfig(source[key], target[key]);
-                }
-            } else {
-                mergeConfig(source[key], target[key]);
-            }
+export function mergeConfig<T extends ObjectKey>(source: ObjectKey, target: T): T {
+    const isObject = (data: any) => Object.prototype.toString.call(data) === '[object Object]';
+    const hasKey = (data: any, key: string) => isObject(data) && Reflect.has(data, key);
+    for (const key in target) {
+        if (!hasKey(source, key)) {
+            source[key] = target[key];
+            isObject(target[key]) && mergeConfig(source[key], target[key]);
+        } else {
+            isObject(target[key]) && mergeConfig(source[key], target[key]);
         }
     }
 
-    return source;
-};
+    return source as T;
+}
+
+/**
+ * @description 分离样式
+ * @param files GetFiles
+ * @param suffixs Array<string>
+ */
+export function extract(files: GetFiles, suffixs: suffix[]) {
+    return suffixs.reduce((result, suffix) => {
+        result[suffix] = files.filter(item => item.fileName.endsWith(`.${suffix}`));
+        return result;
+    }, {} as { [key in suffix]: GetFiles });
+}
 

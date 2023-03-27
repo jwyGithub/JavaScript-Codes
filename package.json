@@ -26,6 +26,7 @@
         "dist"
     ],
     "scripts": {
+        "dev": "rollup -c rollup.config.ts --configPlugin rollup-plugin-typescript2 --watch",
         "build": "rollup -c rollup.config.ts --configPlugin rollup-plugin-typescript2",
         "release": "npm run build && bumpp package.json --commit --push --tag && npm publish --access=public",
         "lint": "eslint ."
@@ -44,3 +45,4 @@
         "typescript": "^5.0.2"
     }
 }
+

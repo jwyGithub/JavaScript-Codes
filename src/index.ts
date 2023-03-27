@@ -1,48 +1,28 @@
-import { join } from 'path';
 import type { PluginAPI, ProjectOptions } from '@vue/cli-service';
-import type { ObjectKey } from './shared';
-import { getFiles, mergeConfig } from './shared';
-const PLUGIN_NAME = 'vue-cli-plugin-inject-style';
-
-type suffix = 'scss' | 'less';
-
-interface StyleConfig {
-    path: string;
-    suffixs: Array<suffix>;
-}
-
-const getDefaultConfig = (root: string) => {
-    return {
-        [PLUGIN_NAME]: {
-            path: join(root, 'src', 'style'),
-            suffixs: ['scss', 'less']
-        }
-    };
-};
-
-const target = {
-    css: {
-        loaderOptions: {
-            scss: {},
-            less: {}
-        }
-    }
-};
+import { extract, getFiles, mergeConfig } from './shared';
+import type { suffix } from './config';
+import { PLUGIN_NAME, getPluginConfig, styleConfig } from './config';
 
 function injectStyle(api: PluginAPI, options: ProjectOptions) {
+    const { css = {}, pluginOptions = {} } = options;
     const root = api.getCwd();
-    const defaultConfig = getDefaultConfig(root);
-    const pluginOption: ObjectKey<{ [key: string]: any }> = mergeConfig(options.pluginOptions ?? defaultConfig, defaultConfig);
-    const pluginConfig: StyleConfig = pluginOption[PLUGIN_NAME];
-    pluginConfig.path = pluginConfig.path ?? defaultConfig[PLUGIN_NAME].path;
-    pluginConfig.suffixs = pluginConfig.suffixs ?? defaultConfig[PLUGIN_NAME].suffixs;
-    options.css = options.css ?? {};
-    const template = mergeConfig<{ [key: string]: any }>(options.css, target.css);
+
+    // 插件配置
+    const pluginConfig = mergeConfig(pluginOptions, getPluginConfig(root))[PLUGIN_NAME];
+
+    // 所有的样式文件路径
     const files = getFiles(pluginConfig.path);
-    const additionalData = template.loaderOptions.scss.additionalData ?? '';
-    template.loaderOptions!.scss = {
-        additionalData: files.map(item => `@import "${item.dirPath}";${additionalData}`).join(';')
-    };
+
+    const extractStyle = extract(files, pluginConfig.suffixs);
+    const cssOptions = mergeConfig(css, styleConfig.css);
+
+    Object.keys(extractStyle).forEach(suffix => {
+        const additionalData = cssOptions.loaderOptions[suffix as suffix].additionalData ?? '';
+        cssOptions.loaderOptions[suffix as suffix].additionalData =
+            extractStyle[suffix as suffix].map(item => `@import "${item.filePath}";`).join('') + `${additionalData}`;
+    });
+
+    options.css = cssOptions;
 }
 
 export default injectStyle;

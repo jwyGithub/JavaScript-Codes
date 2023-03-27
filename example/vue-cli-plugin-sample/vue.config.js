@@ -10,10 +10,6 @@ module.exports = defineConfig({
             }
         }
     },
-    pluginOptions: {
-        'vue-cli-plugin-inject-style': {
-            suffixs: ['scss']
-        }
-    }
+    pluginOptions: {}
 });
 
