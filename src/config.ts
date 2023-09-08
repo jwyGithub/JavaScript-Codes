@@ -23,6 +23,20 @@ export const styleConfig = {
 
 export type suffix = 'scss' | 'less';
 
+export type InjectStyle = {
+    /**
+     * @description style root
+     * @default src/style
+     */
+    path: string;
+
+    /**
+     * @description style suffix
+     * @default ["scss","less"]
+     */
+    suffixs: suffix[];
+};
+
 /**
  * @description 处理插件默认配置
  * @param root string
@@ -30,10 +44,7 @@ export type suffix = 'scss' | 'less';
 export const getPluginConfig = (
     root: string
 ): {
-    [PLUGIN_NAME]: {
-        path: string;
-        suffixs: suffix[];
-    };
+    [PLUGIN_NAME]: InjectStyle;
 } => {
     return {
         [PLUGIN_NAME]: {

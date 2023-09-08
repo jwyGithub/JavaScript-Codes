@@ -10,9 +10,73 @@ automatically inject style files based on the style path
 </p>
 <br />
 
-## install
+## Install
+
+### with pnpm
+
+```sh
+pnpm add vue-cli-plugin-inject-style -D
+```
+
+### with yarn
+
+```sh
+yarn add vue-cli-plugin-inject-style -D
+```
+
+### with npm
+
+```sh
+npm install vue-cli-plugin-inject-style -D
+```
+
+### with vue
 
 ```sh
 vue add vue-cli-plugin-inject-style
+```
+
+## Option
+
+```typescript
+export type InjectStyle = {
+    /**
+     * @description style root
+     * @default src/style
+     */
+    path: string;
+
+    /**
+     * @description style suffix
+     * @default ["scss","less"]
+     */
+    suffixs: suffix[];
+};
+```
+
+## Config
+
+```javascript
+// vue.config.js
+const path = require('path');
+const { defineConfig } = require('@vue/cli-service');
+module.exports = defineConfig({
+    transpileDependencies: true,
+    css: {
+        sourceMap: false,
+        loaderOptions: {
+            // manual add
+            scss: {
+                additionalData: '@import "~@/styles/index.scss";'
+            }
+        }
+    },
+    pluginOptions: {
+        'vue-cli-plugin-inject-style': {
+            path: path.join(__dirname, 'src', 'style'),
+            suffixs: ['scss', 'less']
+        }
+    }
+});
 ```
 
