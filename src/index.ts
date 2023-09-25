@@ -1,5 +1,5 @@
 import type { PluginAPI, ProjectOptions } from '@vue/cli-service';
-import { extract, getFiles, mergeConfig } from './shared';
+import { extract, getFiles, isDir, mergeConfig } from './shared';
 import type { suffix } from './config';
 import { PLUGIN_NAME, getPluginConfig, styleConfig } from './config';
 
@@ -10,6 +10,8 @@ function injectStyle(api: PluginAPI, options: ProjectOptions) {
     // 插件配置
     const pluginConfig = mergeConfig(pluginOptions, getPluginConfig(root))[PLUGIN_NAME];
 
+    if (!isDir(pluginConfig.path)) return;
+
     // 所有的样式文件路径
     const files = getFiles(pluginConfig.path);
 
@@ -19,7 +21,8 @@ function injectStyle(api: PluginAPI, options: ProjectOptions) {
     Object.keys(extractStyle).forEach(suffix => {
         const additionalData = cssOptions.loaderOptions[suffix as suffix].additionalData ?? '';
         cssOptions.loaderOptions[suffix as suffix].additionalData =
-            extractStyle[suffix as suffix].map(item => `@import "${item.filePath}";`).join('') + `${additionalData}`;
+            extractStyle[suffix as suffix].map(item => `@import "${item.filePath.replace(/\\/g, '/')}";`).join('') +
+            `${typeof additionalData === 'string' ? additionalData : ''}`;
     });
 
     options.css = cssOptions;

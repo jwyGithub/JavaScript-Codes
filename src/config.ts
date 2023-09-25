@@ -23,7 +23,7 @@ export const styleConfig = {
 
 export type suffix = 'scss' | 'less';
 
-export type InjectStyle = {
+export interface InjectStyle {
     /**
      * @description style root
      * @default src/style
@@ -35,7 +35,7 @@ export type InjectStyle = {
      * @default ["scss","less"]
      */
     suffixs: suffix[];
-};
+}
 
 /**
  * @description 处理插件默认配置

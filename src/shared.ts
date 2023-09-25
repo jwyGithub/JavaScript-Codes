@@ -11,6 +11,10 @@ export type GetFiles = Array<{
     filePath: string;
 }>;
 
+export const isDir = (path: string): boolean => {
+    return lstatSync(path).isDirectory();
+};
+
 /**
  * @description 是否是文件
  * @param path
