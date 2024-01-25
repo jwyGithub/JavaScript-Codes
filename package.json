@@ -1,6 +1,6 @@
 {
     "name": "vue-cli-plugin-inject-style",
-    "version": "0.0.5",
+    "version": "0.1.0",
     "description": "automatically inject style files based on the style path",
     "author": "jiangweiye <jiangweiye@outlook.com> (https://github.com/jwyGithub)",
     "license": "MIT",
