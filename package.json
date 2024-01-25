@@ -1,6 +1,6 @@
 {
     "name": "vue-cli-plugin-inject-style",
-    "version": "0.1.0",
+    "version": "0.0.6",
     "description": "automatically inject style files based on the style path",
     "author": "jiangweiye <jiangweiye@outlook.com> (https://github.com/jwyGithub)",
     "license": "MIT",
@@ -29,7 +29,7 @@
     "scripts": {
         "build": "tsup",
         "release": "npm run build && bumpp package.json --commit --push --tag && npm publish --access=public",
-        "publish": "npm version minor && npm publish --access=public",
+        "publish": "npm publish --access=public",
         "lint": "eslint ."
     },
     "peerDependencies": {
