@@ -1,10 +1,13 @@
 {
     "name": "vue-cli-plugin-inject-style",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "automatically inject style files based on the style path",
     "author": "jiangweiye <jiangweiye@outlook.com> (https://github.com/jwyGithub)",
     "license": "MIT",
     "homepage": "https://github.com/jwyGithub/vue-cli-plugin-inject-style",
+    "publishConfig": {
+        "access": "public"
+    },
     "keywords": [
         "vue",
         "vue-cli",
@@ -17,8 +20,8 @@
     ],
     "exports": {
         ".": {
-            "require": "./dist/index.cjs.js",
-            "types": "./dist/index.d.ts"
+            "types": "./dist/index.d.ts",
+            "require": "./dist/index.cjs.js"
         }
     },
     "main": "./dist/index.cjs.js",
@@ -29,7 +32,6 @@
     "scripts": {
         "build": "tsup",
         "release": "npm run build && bumpp package.json --commit --push --tag && npm publish --access=public",
-        "publish": "npm publish --access=public",
         "lint": "eslint ."
     },
     "peerDependencies": {
@@ -47,3 +49,4 @@
         "typescript": "^5.2.2"
     }
 }
+
