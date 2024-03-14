@@ -12,7 +12,7 @@ export type GetFiles = Array<{
 }>;
 
 export const isDir = (path: string): boolean => {
-    return lstatSync(path).isDirectory();
+    return existsSync(path) && lstatSync(path).isDirectory();
 };
 
 /**
