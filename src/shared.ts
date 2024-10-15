@@ -1,5 +1,5 @@
-import { existsSync, lstatSync, readdirSync } from 'fs';
-import { join } from 'path';
+import { existsSync, lstatSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 import type { suffix } from './config';
 
 export interface ObjectKey {
@@ -18,7 +18,7 @@ export const isDir = (path: string): boolean => {
 /**
  * @description 是否是文件
  * @param path
- * @returns
+ * @returns boolean
  */
 export const isFile = (path: string): boolean => {
     return lstatSync(path).isFile();
@@ -27,7 +27,7 @@ export const isFile = (path: string): boolean => {
 /**
  * @description 是否存在文件
  * @param path
- * @returns
+ * @return boolean
  */
 export const hasFile = (path: string) => {
     return existsSync(path);
@@ -36,7 +36,7 @@ export const hasFile = (path: string) => {
 /**
  * @description 获取所有文件夹
  * @param path
- * @returns
+ * @returns GetFiles
  */
 export const getFiles = (path: string): GetFiles => {
     const dirs = readdirSync(path);
@@ -93,9 +93,11 @@ export function mergeConfig<T extends ObjectKey>(source: ObjectKey, target: T): 
  * @param suffixs Array<string>
  */
 export function extract(files: GetFiles, suffixs: suffix[]) {
-    return suffixs.reduce((result, suffix) => {
-        result[suffix] = files.filter(item => item.fileName.endsWith(`.${suffix}`));
-        return result;
-    }, {} as { [key in suffix]: GetFiles });
+    return suffixs.reduce(
+        (result, suffix) => {
+            result[suffix] = files.filter(item => item.fileName.endsWith(`.${suffix}`));
+            return result;
+        },
+        {} as { [key in suffix]: GetFiles }
+    );
 }
-

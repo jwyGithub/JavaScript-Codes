@@ -20,13 +20,12 @@ function injectStyle(api: PluginAPI, options: ProjectOptions) {
 
     Object.keys(extractStyle).forEach(suffix => {
         const additionalData = cssOptions.loaderOptions[suffix as suffix].additionalData ?? '';
-        cssOptions.loaderOptions[suffix as suffix].additionalData =
-            extractStyle[suffix as suffix].map(item => `@import "${item.filePath.replace(/\\/g, '/')}";`).join('') +
-            `${typeof additionalData === 'string' ? additionalData : ''}`;
+        cssOptions.loaderOptions[suffix as suffix].additionalData = `${extractStyle[suffix as suffix]
+            .map(item => `@import "${item.filePath.replace(/\\/g, '/')}";`)
+            .join('')}${typeof additionalData === 'string' ? additionalData : ''}`;
     });
 
     options.css = cssOptions;
 }
 
 export default injectStyle;
-

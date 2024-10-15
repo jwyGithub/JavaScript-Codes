@@ -2,11 +2,11 @@
     "extends": "@jiangweiye/tsconfig/tsconfig.node.json",
     "compilerOptions": {
         "target": "esnext",
-        "useDefineForClassFields": true,
         "lib": ["ESNext", "DOM"],
+        "useDefineForClassFields": true,
+        "module": "esnext",
         "moduleResolution": "Node",
-        "strict": true,
-        "module": "esnext"
+        "strict": true
     },
     "include": ["src/**/*", "tsup.config.ts"],
     "exclude": ["node_modules", "**/*.spec.ts"]

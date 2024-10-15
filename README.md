@@ -39,7 +39,7 @@ vue add vue-cli-plugin-inject-style
 ## Option
 
 ```typescript
-export type InjectStyle = {
+export interface InjectStyle {
     /**
      * @description style root
      * @default src/style
@@ -51,14 +51,14 @@ export type InjectStyle = {
      * @default ["scss","less"]
      */
     suffixs: suffix[];
-};
+}
 ```
 
 ## Config
 
 ```javascript
 // vue.config.js
-const path = require('path');
+const path = require('node:path');
 const { defineConfig } = require('@vue/cli-service');
 module.exports = defineConfig({
     transpileDependencies: true,
@@ -79,4 +79,3 @@ module.exports = defineConfig({
     }
 });
 ```
-
