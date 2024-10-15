@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.5](https://github.com/jwyGithub/vue-cli-plugin-inject-style/compare/v1.0.4...v1.0.5) (2024-10-15)
+
+
+### Bug Fixes
+
+* add release ci ([ee9b445](https://github.com/jwyGithub/vue-cli-plugin-inject-style/commit/ee9b4457ea8c5c796d7009794c4437649b2b9f0e))
+
 ### [1.0.4](https://github.com/jwyGithub/vue-cli-plugin-inject-style/compare/v0.0.5...v1.0.4) (2024-10-15)
 
 
